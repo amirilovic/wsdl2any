@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is JAX-WS RI 2.2.10-b140319.1121 svn-revision#7b34660d6bc70e587e8ec81a17e4d76af68816a6. -->
+<WL5G3N0:definitions xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://www.bahn.de/webservices/dritte/angebotssuche/request" xmlns:WL5G3N10="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:WL5G3N2="http://www.bahn.de/webservices/dritte/angebotssuche/response" xmlns:WL5G3N3="http://www.bahn.de/webservices/dritte/angebotsdetails/request" xmlns:WL5G3N4="http://www.bahn.de/webservices/dritte/angebotsdetails/response" xmlns:WL5G3N5="http://www.bahn.de/webservices/dritte/ping/request" xmlns:WL5G3N6="http://www.bahn.de/webservices/dritte/ping/response" xmlns:WL5G3N7="http://www.bahn.de/webservices/dritte/monitoring/request" xmlns:WL5G3N8="http://www.bahn.de/webservices/dritte/monitoring/response" xmlns:WL5G3N9="http://www.bahn.de/webservices/dritte" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.bahn.de/webservices/dritte">
+   <WL5G3N0:documentation />
+   <WL5G3N0:types>
+      <xs:schema xmlns="http://www.bahn.de/webservices/dritte/angebotsdetails/request" xmlns:cm="http://www.bahn.de/webservices/dritte/datatypes/common" xmlns:db="http://www.bahn.de/webservices/dritte/datatypes/db" xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/angebotsdetails/request">
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/common" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=5" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/primitive" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=11" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/db" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=6" />
+         <xs:element name="AngebotsdetailsRequest" type="AngebotsdetailsRequest" />
+         <xs:complexType name="AngebotsdetailsRequest">
+            <xs:all>
+               <xs:element name="Header" type="cm:HeaderRequestRA" />
+               <xs:element name="RequestData" type="RequestData" />
+            </xs:all>
+         </xs:complexType>
+         <xs:complexType name="RequestData">
+            <xs:all>
+               <xs:element name="TariffIdentificationH" type="TariffIdentification" />
+               <xs:element minOccurs="0" name="TariffIdentificationR" type="TariffIdentification" />
+               <xs:element name="TravelerList" type="db:TravelerList" />
+               <xs:element name="ScheduleH" type="Schedule" />
+               <xs:element minOccurs="0" name="ScheduleR" type="Schedule" />
+            </xs:all>
+            <xs:attribute name="ot" type="pr:Timestamp" use="required" />
+            <xs:attribute name="bmis" type="db:Bmis-Nr" use="optional" />
+         </xs:complexType>
+         <xs:complexType name="TariffIdentification">
+            <xs:attribute name="t" type="pr:String40" use="required" />
+            <xs:attribute name="c" type="db:Class" use="required" />
+         </xs:complexType>
+         <xs:complexType name="Schedule">
+            <xs:sequence>
+               <xs:element name="TrainList" type="TrainList" />
+            </xs:sequence>
+            <xs:attribute name="sid" type="db:ScheduleID" use="required" />
+            <xs:attribute name="dt" type="pr:Date" use="required" />
+         </xs:complexType>
+         <xs:complexType name="TrainList">
+            <xs:sequence>
+               <xs:element maxOccurs="10" name="Train" type="Train" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="Train">
+            <xs:attribute name="tid" type="db:TrainID" use="optional" />
+            <xs:attribute name="s" type="db:Eva-Nr" use="required" />
+            <xs:attribute name="d" type="db:Eva-Nr" use="required" />
+            <xs:attribute name="dep" type="pr:Timeoffset" use="required" />
+            <xs:attribute name="arr" type="pr:Timeoffset" use="required" />
+            <xs:attribute name="tn" type="pr:String8" use="optional" />
+            <xs:attribute name="lt" type="db:LegType" use="required" />
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema xmlns="http://www.bahn.de/webservices/dritte/angebotsdetails/response" xmlns:cm="http://www.bahn.de/webservices/dritte/datatypes/common" xmlns:db="http://www.bahn.de/webservices/dritte/datatypes/db" xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/angebotsdetails/response">
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/common" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=5" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/primitive" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=11" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/db" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=6" />
+         <xs:element name="AngebotsdetailsResponse" type="AngebotsdetailsResponse" />
+         <xs:complexType name="AngebotsdetailsResponse">
+            <xs:all>
+               <xs:element name="Header" type="cm:HeaderResponse" />
+               <xs:element minOccurs="0" name="Error" type="cm:Error" />
+               <xs:element minOccurs="0" name="ResponseData" type="ResponseData" />
+            </xs:all>
+         </xs:complexType>
+         <xs:complexType name="ResponseData">
+            <xs:all>
+               <xs:element name="OfferDetails" type="OfferDetails" />
+               <xs:element name="ScheduleH" type="Schedule" />
+               <xs:element minOccurs="0" name="ScheduleR" type="Schedule" />
+            </xs:all>
+         </xs:complexType>
+         <xs:complexType name="OfferDetails">
+            <xs:all>
+               <xs:element name="TariffIdentificationH" type="TariffIdentification" />
+               <xs:element minOccurs="0" name="TariffIdentificationR" type="TariffIdentification" />
+               <xs:element name="TravelerList" type="db:TravelerList" />
+               <xs:element name="OfferSegList" type="OfferSegmentList" />
+               <xs:element minOccurs="0" name="SeatResH" type="SeatReservation" />
+               <xs:element minOccurs="0" name="SeatResR" type="SeatReservation" />
+            </xs:all>
+            <xs:attribute name="pp" type="cm:Price" use="required" />
+            <xs:attribute name="ssn" type="pr:String30" use="required" />
+            <xs:attribute name="sdn" type="pr:String30" use="required" />
+            <xs:attribute name="ssnr" type="pr:String30" use="optional" />
+            <xs:attribute name="sdnr" type="pr:String30" use="optional" />
+            <xs:attribute name="bmis" type="db:Bmis-Nr" use="optional" />
+            <xs:attribute name="ff" type="db:FulfillmentTypeCombination" use="required" />
+            <xs:attribute name="post" type="cm:Price" use="required" />
+            <xs:attribute name="mot" type="pr:Boolean" />
+         </xs:complexType>
+         <xs:complexType name="OfferSegmentList">
+            <xs:sequence>
+               <xs:element maxOccurs="10" name="OfferSeg" type="OfferSegment" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="OfferSegment">
+            <xs:attribute name="dir" type="db:DirectionCombination" use="required" />
+            <xs:attribute name="st" type="db:SegmentType" use="required" />
+            <xs:attribute name="sn" type="pr:String30" use="required" />
+            <xs:attribute name="dn" type="pr:String30" use="required" />
+            <xs:attribute name="p" type="cm:Price" use="required" />
+            <xs:attribute name="tt" type="db:TariffType" use="optional" />
+            <xs:attribute name="od" type="pr:String" use="optional" />
+            <xs:attribute name="oc" type="pr:String" use="optional" />
+            <xs:attribute name="zb" type="pr:Boolean" use="required" />
+            <xs:attribute name="tid" type="db:TrainID" use="optional" />
+         </xs:complexType>
+         <xs:complexType name="SeatReservation">
+            <xs:sequence>
+               <xs:element maxOccurs="10" name="RefTrain" type="RefTrain" />
+            </xs:sequence>
+            <xs:attribute name="p" type="cm:Price" />
+         </xs:complexType>
+         <xs:complexType name="RefTrain">
+            <xs:attribute name="tid" type="db:TrainID" use="required" />
+         </xs:complexType>
+         <xs:complexType name="Schedule">
+            <xs:all>
+               <xs:element name="TrainList" type="TrainList" />
+            </xs:all>
+            <xs:attribute name="sid" type="db:ScheduleID" use="required" />
+            <xs:attribute name="dt" type="pr:Date" use="required" />
+            <xs:attribute name="dur" type="pr:Timeoffset" use="required" />
+            <xs:attribute name="nt" type="pr:Integer2" use="required" />
+            <xs:attribute name="pr" type="pr:String" use="required" />
+         </xs:complexType>
+         <xs:complexType name="TrainList">
+            <xs:sequence>
+               <xs:element maxOccurs="10" name="Train" type="Train" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="Train">
+            <xs:attribute name="tid" type="db:TrainID" use="optional" />
+            <xs:attribute name="sn" type="pr:String30" use="required" />
+            <xs:attribute name="s" type="db:Eva-Nr" use="required" />
+            <xs:attribute name="dn" type="pr:String30" use="required" />
+            <xs:attribute name="d" type="db:Eva-Nr" use="required" />
+            <xs:attribute name="dep" type="pr:Timeoffset" use="required" />
+            <xs:attribute name="arr" type="pr:Timeoffset" use="required" />
+            <xs:attribute name="ptfd" type="pr:String8" use="optional" />
+            <xs:attribute name="ptfa" type="pr:String8" use="optional" />
+            <xs:attribute name="tn" type="pr:String8" use="optional" />
+            <xs:attribute name="lt" type="db:LegType" use="required" />
+            <xs:attribute name="rt1" type="pr:String" use="optional" />
+            <xs:attribute name="rt2" type="pr:String" use="optional" />
+         </xs:complexType>
+         <xs:complexType name="TariffIdentification">
+            <xs:attribute name="t" type="pr:String40" use="required" />
+            <xs:attribute name="c" type="db:Class" use="required" />
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema xmlns="http://www.bahn.de/webservices/dritte/angebotssuche/request" xmlns:cm="http://www.bahn.de/webservices/dritte/datatypes/common" xmlns:db="http://www.bahn.de/webservices/dritte/datatypes/db" xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/angebotssuche/request">
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/common" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=5" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/primitive" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=11" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/db" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=6" />
+         <xs:element name="AngebotssucheRequest" type="AngebotssucheRequest" />
+         <xs:complexType name="AngebotssucheRequest">
+            <xs:all>
+               <xs:element name="Header" type="cm:HeaderRequestRA" />
+               <xs:element name="RequestData" type="RequestData" />
+            </xs:all>
+         </xs:complexType>
+         <xs:complexType name="RequestData">
+            <xs:all>
+               <xs:element name="DateTimeH" type="DateTime" />
+               <xs:element minOccurs="0" name="DateTimeR" type="DateTime" />
+               <xs:element name="TravelerList" type="db:TravelerList" />
+            </xs:all>
+            <xs:attribute name="s" type="db:Eva-Nr" use="required" />
+            <xs:attribute name="d" type="db:Eva-Nr" use="required" />
+            <xs:attribute name="c" type="db:Class" use="optional" />
+            <xs:attribute name="bmis" type="db:Bmis-Nr" use="optional" />
+            <xs:attribute name="dc" type="pr:Boolean" use="optional" />
+            <xs:attribute name="coc" type="pr:Boolean" use="optional" />
+         </xs:complexType>
+         <xs:complexType name="DateTime">
+            <xs:all>
+               <xs:element minOccurs="0" name="SearchPeriod" type="SearchPeriod" />
+            </xs:all>
+            <xs:attribute name="d" type="pr:Date" use="required" />
+         </xs:complexType>
+         <xs:complexType name="SearchPeriod">
+            <xs:attribute name="t" type="pr:Time" use="required" />
+            <xs:attribute name="dur" type="pr:Integer5" use="required" />
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema xmlns="http://www.bahn.de/webservices/dritte/angebotssuche/response" xmlns:cm="http://www.bahn.de/webservices/dritte/datatypes/common" xmlns:db="http://www.bahn.de/webservices/dritte/datatypes/db" xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/angebotssuche/response">
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/common" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=5" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/primitive" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=11" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/db" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=6" />
+         <xs:element name="AngebotssucheResponse" type="AngebotssucheResponse" />
+         <xs:complexType name="AngebotssucheResponse">
+            <xs:all>
+               <xs:element name="Header" type="cm:HeaderResponse" />
+               <xs:element minOccurs="0" name="Error" type="cm:Error" />
+               <xs:element minOccurs="0" name="ResponseData" type="ResponseData" />
+            </xs:all>
+         </xs:complexType>
+         <xs:complexType name="ResponseData">
+            <xs:sequence>
+               <xs:element maxOccurs="2" name="Offers" type="Offers" />
+               <xs:element name="ScheduleResult" type="ScheduleResult" />
+            </xs:sequence>
+            <xs:attribute name="post" type="cm:Price" use="required" />
+         </xs:complexType>
+         <xs:complexType name="Offers">
+            <xs:sequence>
+               <xs:element maxOccurs="20" name="Offer" type="Offer" />
+            </xs:sequence>
+            <xs:attribute name="dir" type="db:Direction" use="required" />
+         </xs:complexType>
+         <xs:complexType name="Offer">
+            <xs:sequence>
+               <xs:element maxOccurs="400" name="RefSchedule" type="RefSchedule" />
+            </xs:sequence>
+            <xs:attribute name="p" type="cm:Price" use="required" />
+            <xs:attribute name="t" type="pr:String40" use="required" />
+            <xs:attribute name="od" type="pr:String" use="required" />
+            <xs:attribute name="tt" type="db:TariffType" use="required" />
+            <xs:attribute name="c" type="db:Class" use="required" />
+            <xs:attribute name="zb" type="pr:Boolean" use="required" />
+            <xs:attribute name="arq" type="pr:Boolean" use="required" />
+            <xs:attribute name="ff" type="db:FulfillmentTypeCombination" use="required" />
+            <xs:attribute name="mot" type="pr:Boolean" />
+         </xs:complexType>
+         <xs:complexType name="RefSchedule">
+            <xs:attribute name="sid" type="db:ScheduleID" use="required" />
+         </xs:complexType>
+         <xs:complexType name="ScheduleResult">
+            <xs:sequence>
+               <xs:element maxOccurs="400" name="Schedule" type="Schedule" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="Schedule">
+            <xs:all>
+               <xs:element name="TrainList" type="TrainList" />
+            </xs:all>
+            <xs:attribute name="dir" type="db:Direction" use="required" />
+            <xs:attribute name="sid" type="db:ScheduleID" use="required" />
+            <xs:attribute name="dt" type="pr:Date" use="required" />
+            <xs:attribute name="dur" type="pr:Timeoffset" use="required" />
+            <xs:attribute name="nt" type="pr:Integer2" use="required" />
+            <xs:attribute name="pr" type="pr:String" use="required" />
+         </xs:complexType>
+         <xs:complexType name="TrainList">
+            <xs:sequence>
+               <xs:element maxOccurs="10" name="Train" type="Train" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="Train">
+            <xs:attribute name="tid" type="db:TrainID" use="optional" />
+            <xs:attribute name="sn" type="pr:String30" use="required" />
+            <xs:attribute name="s" type="db:Eva-Nr" use="required" />
+            <xs:attribute name="dn" type="pr:String30" use="required" />
+            <xs:attribute name="d" type="db:Eva-Nr" use="required" />
+            <xs:attribute name="dep" type="pr:Timeoffset" use="required" />
+            <xs:attribute name="arr" type="pr:Timeoffset" use="required" />
+            <xs:attribute name="tn" type="pr:String8" use="optional" />
+            <xs:attribute name="lt" type="db:LegType" use="required" />
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema xmlns="http://www.bahn.de/webservices/dritte/datatypes/common" xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/datatypes/common">
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/primitive" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=11" />
+         <xs:complexType name="HeaderRequestRA">
+            <xs:attribute name="us" type="pr:String40" use="required" />
+            <xs:attribute name="sig" type="pr:String" use="required" />
+            <xs:attribute name="tnr" type="pr:String32" use="required" />
+            <xs:attribute name="t" type="pr:Timestamp" use="required" />
+            <xs:attribute name="l" type="Language" use="optional" />
+         </xs:complexType>
+         <xs:complexType name="HeaderRequestFA">
+            <xs:attribute name="us" type="pr:String40" use="required" />
+            <xs:attribute name="pwd" type="pr:String40" use="required" />
+            <xs:attribute name="tnr" type="pr:String32" use="required" />
+            <xs:attribute name="t" type="pr:Timestamp" use="required" />
+            <xs:attribute name="l" type="Language" use="optional" />
+         </xs:complexType>
+         <xs:complexType name="HeaderResponse">
+            <xs:attribute name="tnr" type="pr:String32" use="required" />
+            <xs:attribute name="t" type="pr:Timestamp" use="required" />
+         </xs:complexType>
+         <xs:complexType name="Error">
+            <xs:attribute name="nr" type="Error-Nr" use="required" />
+            <xs:attribute name="txt" type="pr:String" use="required" />
+            <xs:attribute name="sev" type="Severity" use="required" />
+         </xs:complexType>
+         <xs:simpleType name="Severity">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="4" />
+               <xs:maxLength value="5" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Language">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="2" />
+               <xs:maxLength value="2" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Price">
+            <xs:restriction base="pr:Integer7" />
+         </xs:simpleType>
+         <xs:simpleType name="CreditCardType">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="2" />
+               <xs:maxLength value="2" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Error-Nr">
+            <xs:restriction base="xs:string">
+               <xs:pattern value="\d{5}" />
+               <!--  eine fuenf stellige Zahl  -->
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="CountryCode">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="3" />
+               <xs:maxLength value="3" />
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:schema>
+      <xs:schema xmlns="http://www.bahn.de/webservices/dritte/datatypes/db" xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/datatypes/db">
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/primitive" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=11" />
+         <xs:simpleType name="Eva-Nr">
+            <xs:restriction base="xs:integer">
+               <xs:pattern value="\d{6,7}" />
+               <!--  eine sechs- oder siebenstellige Zahl  -->
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Bmis-Nr">
+            <xs:restriction base="xs:integer">
+               <xs:pattern value="\d{7}" />
+               <!--  eine sieben stellige Zahl  -->
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Order-Nr">
+            <xs:restriction base="pr:String6" />
+         </xs:simpleType>
+         <xs:simpleType name="ScheduleID">
+            <xs:restriction base="pr:String3" />
+         </xs:simpleType>
+         <xs:simpleType name="TrainID">
+            <xs:restriction base="pr:String6" />
+         </xs:simpleType>
+         <xs:simpleType name="BahnBonusKartenID">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="16" />
+               <xs:maxLength value="16" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Class">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="SeatCompartment">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="SeatArea">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="SeatLocation">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Salutaion">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Title">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="IdentificationType">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="2" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="BehaviorResFailure">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="IdentificationCountry">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="3" />
+               <xs:maxLength value="3" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:complexType name="TravelerList">
+            <xs:sequence>
+               <xs:element maxOccurs="5" name="Traveler" type="Traveler" />
+            </xs:sequence>
+         </xs:complexType>
+         <xs:complexType name="Traveler">
+            <xs:attribute name="age" type="pr:Integer3" use="required" />
+            <xs:attribute name="r" type="Reduction" use="optional" />
+         </xs:complexType>
+         <xs:simpleType name="Reduction">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="6" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Direction">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="DirectionCombination">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="3" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="TariffType">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="2" />
+               <xs:maxLength value="2" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="FulfillmentTypeCombination">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="3" />
+               <xs:maxLength value="7" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="FulfillmentType">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="3" />
+               <xs:maxLength value="3" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="SegmentType">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="6" />
+               <xs:maxLength value="8" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="OfferSegmentType">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="3" />
+               <xs:maxLength value="3" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="LegType">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="4" />
+               <xs:maxLength value="9" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="CancelStatus">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Cancable">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:schema>
+      <xs:schema xmlns="http://www.bahn.de/webservices/dritte/monitoring/request" xmlns:cm="http://www.bahn.de/webservices/dritte/datatypes/common" xmlns:db="http://www.bahn.de/webservices/dritte/datatypes/db" xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/monitoring/request">
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/common" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=5" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/primitive" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=11" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/db" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=6" />
+         <xs:element name="MonitoringRequest" type="MonitoringRequest" />
+         <xs:complexType name="MonitoringRequest">
+            <xs:all>
+               <xs:element name="Header" type="cm:HeaderRequestRA" />
+            </xs:all>
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema xmlns="http://www.bahn.de/webservices/dritte/monitoring/response" xmlns:cm="http://www.bahn.de/webservices/dritte/datatypes/common" xmlns:db="http://www.bahn.de/webservices/dritte/datatypes/db" xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/monitoring/response">
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/common" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=5" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/primitive" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=11" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/db" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=6" />
+         <xs:element name="MonitoringResponse" type="MonitoringResponse" />
+         <xs:complexType name="MonitoringResponse">
+            <xs:all>
+               <xs:element name="Header" type="cm:HeaderResponse" />
+               <xs:element minOccurs="0" name="Error" type="cm:Error" />
+            </xs:all>
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema xmlns="http://www.bahn.de/webservices/dritte/ping/request" xmlns:cm="http://www.bahn.de/webservices/dritte/datatypes/common" xmlns:db="http://www.bahn.de/webservices/dritte/datatypes/db" xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/ping/request">
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/common" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=5" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/primitive" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=11" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/db" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=6" />
+         <xs:element name="PingRequestFA" type="PingRequestFA" />
+         <xs:complexType name="PingRequestFA">
+            <xs:all>
+               <xs:element name="Header" type="cm:HeaderRequestFA" />
+            </xs:all>
+         </xs:complexType>
+         <xs:element name="PingRequestRA" type="PingRequestRA" />
+         <xs:complexType name="PingRequestRA">
+            <xs:all>
+               <xs:element name="Header" type="cm:HeaderRequestRA" />
+            </xs:all>
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema xmlns="http://www.bahn.de/webservices/dritte/ping/response" xmlns:cm="http://www.bahn.de/webservices/dritte/datatypes/common" xmlns:db="http://www.bahn.de/webservices/dritte/datatypes/db" xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/ping/response">
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/common" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=5" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/primitive" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=11" />
+         <xs:import namespace="http://www.bahn.de/webservices/dritte/datatypes/db" schemaLocation="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1?xsd=6" />
+         <xs:element name="PingResponse" type="PingResponse" />
+         <xs:complexType name="PingResponse">
+            <xs:all>
+               <xs:element name="Header" type="cm:HeaderResponse" />
+               <xs:element minOccurs="0" name="Error" type="cm:Error" />
+            </xs:all>
+         </xs:complexType>
+      </xs:schema>
+      <xs:schema xmlns:pr="http://www.bahn.de/webservices/dritte/datatypes/primitive" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.bahn.de/webservices/dritte/datatypes/primitive">
+         <xs:simpleType name="Boolean">
+            <xs:restriction base="xs:string">
+               <xs:minLength value="1" />
+               <xs:maxLength value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <!--
+ ===============================
+				Integer 
+	 	===============================
+-->
+         <xs:simpleType name="Integer">
+            <xs:restriction base="xs:integer" />
+         </xs:simpleType>
+         <xs:simpleType name="Integer1">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="1" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Integer2">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="2" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Integer3">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="3" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Integer4">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="4" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Integer5">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="5" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Integer7">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="7" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Integer9">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="9" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Integer12">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="12" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Integer20">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="20" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Integer22">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="22" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Integer32">
+            <xs:restriction base="xs:integer">
+               <xs:totalDigits value="32" />
+            </xs:restriction>
+         </xs:simpleType>
+         <!--
+ ===============================
+				String 
+	 	===============================
+-->
+         <xs:simpleType name="String">
+            <xs:restriction base="xs:string" />
+         </xs:simpleType>
+         <xs:simpleType name="String2">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="2" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String3">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="3" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String4">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="4" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String5">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="5" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String6">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="6" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String8">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="8" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String10">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="10" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String12">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="12" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String16">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="16" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String20">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="20" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String22">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="22" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String30">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="30" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String32">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="32" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String40">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="40" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String50">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="50" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String60">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="60" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String200">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="200" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="String240">
+            <xs:restriction base="xs:string">
+               <xs:maxLength value="240" />
+            </xs:restriction>
+         </xs:simpleType>
+         <!--
+ ===============================
+				Date - Time 
+	 	===============================
+-->
+         <xs:simpleType name="Date">
+            <xs:annotation>
+               <xs:documentation>format: YYYYMMDD</xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+               <xs:minLength value="8" />
+               <xs:maxLength value="8" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Time">
+            <xs:annotation>
+               <xs:documentation>format: HHmm</xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+               <xs:minLength value="4" />
+               <xs:maxLength value="4" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Timestamp">
+            <xs:annotation>
+               <xs:documentation>format: YYYYMMDDHHmmss</xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+               <xs:minLength value="14" />
+               <xs:maxLength value="14" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="Timeoffset">
+            <xs:annotation>
+               <xs:documentation>format: OO"d"HH:mm:ss</xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+               <xs:minLength value="11" />
+               <xs:maxLength value="11" />
+            </xs:restriction>
+         </xs:simpleType>
+         <xs:simpleType name="YearMonth">
+            <xs:annotation>
+               <xs:documentation>format: YYYYMM</xs:documentation>
+            </xs:annotation>
+            <xs:restriction base="xs:string">
+               <xs:minLength value="6" />
+               <xs:maxLength value="6" />
+            </xs:restriction>
+         </xs:simpleType>
+      </xs:schema>
+   </WL5G3N0:types>
+   <WL5G3N0:message name="AngebotssucheRequest">
+      <WL5G3N0:part element="WL5G3N1:AngebotssucheRequest" name="request" />
+   </WL5G3N0:message>
+   <WL5G3N0:message name="AngebotssucheResponse">
+      <WL5G3N0:part element="WL5G3N2:AngebotssucheResponse" name="response" />
+   </WL5G3N0:message>
+   <WL5G3N0:message name="AngebotsdetailsRequest">
+      <WL5G3N0:part element="WL5G3N3:AngebotsdetailsRequest" name="request" />
+   </WL5G3N0:message>
+   <WL5G3N0:message name="AngebotsdetailsResponse">
+      <WL5G3N0:part element="WL5G3N4:AngebotsdetailsResponse" name="response" />
+   </WL5G3N0:message>
+   <WL5G3N0:message name="PingRequest">
+      <WL5G3N0:part element="WL5G3N5:PingRequestRA" name="request" />
+   </WL5G3N0:message>
+   <WL5G3N0:message name="PingResponse">
+      <WL5G3N0:part element="WL5G3N6:PingResponse" name="response" />
+   </WL5G3N0:message>
+   <WL5G3N0:message name="MonitoringRequest">
+      <WL5G3N0:part element="WL5G3N7:MonitoringRequest" name="request" />
+   </WL5G3N0:message>
+   <WL5G3N0:message name="MonitoringResponse">
+      <WL5G3N0:part element="WL5G3N8:MonitoringResponse" name="response" />
+   </WL5G3N0:message>
+   <WL5G3N0:portType name="WSDReiseAuskunftPort">
+      <WL5G3N0:operation name="angebotssuche">
+         <WL5G3N0:input message="WL5G3N9:AngebotssucheRequest" name="angebotssucheRequest" />
+         <WL5G3N0:output message="WL5G3N9:AngebotssucheResponse" name="angebotssucheResponse" />
+      </WL5G3N0:operation>
+      <WL5G3N0:operation name="Angebotsdetails">
+         <WL5G3N0:input message="WL5G3N9:AngebotsdetailsRequest" name="AngebotsdetailsRequest" />
+         <WL5G3N0:output message="WL5G3N9:AngebotsdetailsResponse" name="AngebotsdetailsResponse" />
+      </WL5G3N0:operation>
+      <WL5G3N0:operation name="Ping">
+         <WL5G3N0:input message="WL5G3N9:PingRequest" name="PingRequest" />
+         <WL5G3N0:output message="WL5G3N9:PingResponse" name="PingResponse" />
+      </WL5G3N0:operation>
+      <WL5G3N0:operation name="Monitoring">
+         <WL5G3N0:input message="WL5G3N9:MonitoringRequest" name="MonitoringRequest" />
+         <WL5G3N0:output message="WL5G3N9:MonitoringResponse" name="MonitoringResponse" />
+      </WL5G3N0:operation>
+   </WL5G3N0:portType>
+   <WL5G3N0:binding name="WSDReiseAuskunftBinding" type="WL5G3N9:WSDReiseAuskunftPort">
+      <WL5G3N10:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+      <WL5G3N0:operation name="angebotssuche">
+         <WL5G3N10:operation soapAction="db.webservices.dritte" style="document" />
+         <WL5G3N0:input>
+            <WL5G3N10:body use="literal" />
+         </WL5G3N0:input>
+         <WL5G3N0:output>
+            <WL5G3N10:body use="literal" />
+         </WL5G3N0:output>
+      </WL5G3N0:operation>
+      <WL5G3N0:operation name="Angebotsdetails">
+         <WL5G3N10:operation soapAction="db.webservices.dritte" style="document" />
+         <WL5G3N0:input>
+            <WL5G3N10:body use="literal" />
+         </WL5G3N0:input>
+         <WL5G3N0:output>
+            <WL5G3N10:body use="literal" />
+         </WL5G3N0:output>
+      </WL5G3N0:operation>
+      <WL5G3N0:operation name="Ping">
+         <WL5G3N10:operation soapAction="db.webservices.dritte" style="document" />
+         <WL5G3N0:input>
+            <WL5G3N10:body use="literal" />
+         </WL5G3N0:input>
+         <WL5G3N0:output>
+            <WL5G3N10:body use="literal" />
+         </WL5G3N0:output>
+      </WL5G3N0:operation>
+      <WL5G3N0:operation name="Monitoring">
+         <WL5G3N10:operation soapAction="db.webservices.dritte" style="document" />
+         <WL5G3N0:input>
+            <WL5G3N10:body use="literal" />
+         </WL5G3N0:input>
+         <WL5G3N0:output>
+            <WL5G3N10:body use="literal" />
+         </WL5G3N0:output>
+      </WL5G3N0:operation>
+   </WL5G3N0:binding>
+   <WL5G3N0:service name="WSDReiseAuskunftInterface">
+      <WL5G3N0:port binding="WL5G3N9:WSDReiseAuskunftBinding" name="WSDReiseAuskunftPort">
+         <WL5G3N10:address location="http://reiseauskunftdritte-tst.bahn.de:80/webservices/reiseauskunft/v1" />
+      </WL5G3N0:port>
+   </WL5G3N0:service>
+</WL5G3N0:definitions>

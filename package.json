@@ -7,5 +7,20 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.5.6",
+    "promisify-node": "^0.4.0",
+    "xml-schema": "^2.2.0",
+    "xml2js": "^0.4.17",
+    "xmldom": "^0.1.27",
+    "xpath": "0.0.24"
+  },
+  "devDependencies": {
+    "@types/ejs": "^2.3.33",
+    "@types/node": "^7.0.12",
+    "@types/promisify-node": "^0.4.0",
+    "@types/xml2js": "0.0.33",
+    "@types/xmldom": "^0.1.29"
+  }
 }

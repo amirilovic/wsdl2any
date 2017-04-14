@@ -1,0 +1,22 @@
+export interface <%= service.name %> {
+    <% service.contracts.forEach((c) => { %><% c.operations.forEach((o) => { %>
+        <%= o.name %>(request: <%= o.input %>): <%= o.output %> <% }); %><% }) %>
+}
+<% service.types.forEach((t) => { %>
+<%= t.documentation ? '// ' + t.documentation : '' %>
+export interface <%= t.globalName %><%= t.extends ? ' extends ' + t.extends : ''%> {
+    
+    $attributes: <%= t.globalName + 'Attributes' %>
+    <% t.properties.filter((p)=>{return !p.attribute}).forEach((p) => { %>
+    <%= p.documentation ? '// ' + p.documentation : '' %>
+    <%= p.name %>: <%- p.array ? `Array<${p.type}>` : p.type %>
+    <% }) %>
+}
+
+export interface <%= t.globalName + 'Attributes' %><%= t.extends ? ' extends ' + t.extends + 'Attributes' : ''%> {
+    <% t.properties.filter((p)=>{return p.attribute}).forEach((p) => { %>
+    <%= p.documentation ? '// ' + p.documentation : '' %>
+    <%= p.name %>: <%= p.type %>
+    <% }) %>
+}
+<% }); %>
