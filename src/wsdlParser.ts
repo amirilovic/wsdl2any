@@ -460,7 +460,8 @@ export class WsdlParser {
     private isElArray(el: Element): boolean {
         let minOccurs = parseInt(el.getAttribute('minOccurs'));
         let maxOccurs = parseInt(el.getAttribute('maxOccurs'));
-        return !isNaN(minOccurs) && (isNaN(maxOccurs) || maxOccurs > 1)
+
+        return maxOccurs > 1 || (!isNaN(minOccurs) && isNaN(maxOccurs))
     }
 
     private processSequence(el: Element, typeDescription: TypeDescription, propertyGroups: PropertyGroupMap, typeRegistry: TypeRegistry) {

@@ -409,7 +409,7 @@ export interface WarningsType {
     $attributes: WarningsTypeAttributes
     
     
-    Warning: ErrorType
+    Warning: Array<ErrorType>
     
 }
 
@@ -423,7 +423,7 @@ export interface WarningsType1 {
     $attributes: WarningsType1Attributes
     
     // Used in conjunction with the Success element to define a business error.
-    Warning: WarningType1
+    Warning: Array<WarningType1>
     
 }
 
@@ -451,7 +451,7 @@ export interface WarningsType2 {
     $attributes: WarningsType2Attributes
     
     // Used in conjunction with the Success element to define a business error.
-    Warning: WarningType2
+    Warning: Array<WarningType2>
     
 }
 
@@ -499,7 +499,7 @@ export interface ErrorsType {
     $attributes: ErrorsTypeAttributes
     
     
-    Error: ErrorType
+    Error: Array<ErrorType>
     
 }
 
@@ -513,7 +513,7 @@ export interface ErrorsType1 {
     $attributes: ErrorsType1Attributes
     
     // An error that occurred during the processing of a message.
-    Error: ErrorType1
+    Error: Array<ErrorType1>
     
 }
 
@@ -541,7 +541,7 @@ export interface ErrorsType2 {
     $attributes: ErrorsType2Attributes
     
     
-    Error: ErrorType2
+    Error: Array<ErrorType2>
     
 }
 
@@ -610,7 +610,7 @@ export interface PointsOfSaleType {
     $attributes: PointsOfSaleTypeAttributes
     
     
-    PointOfSale: PointOfSaleType
+    PointOfSale: Array<PointOfSaleType>
     
 }
 
@@ -624,7 +624,7 @@ export interface CriteriaSetType {
     $attributes: CriteriaSetTypeAttributes
     
     
-    Criteria: CriteriaType
+    Criteria: Array<CriteriaType>
     
 }
 
@@ -686,7 +686,7 @@ export interface AcceptablePaymentCardsType {
     $attributes: AcceptablePaymentCardsTypeAttributes
     
     // Specific information of one payment card that is acceptable as a form of payment.
-    AcceptablePaymentCard: AcceptablePaymentCardType
+    AcceptablePaymentCard: Array<AcceptablePaymentCardType>
     
 }
 
@@ -723,7 +723,7 @@ export interface FormattedTextType {
     $attributes: FormattedTextTypeAttributes
     
     // Subsection formatted text information.
-    SubSection: FormattedTextSubSectionType
+    SubSection: Array<FormattedTextSubSectionType>
     
 }
 
@@ -743,7 +743,7 @@ export interface FormattedTextSubSectionType {
     $attributes: FormattedTextSubSectionTypeAttributes
     
     // Details and content of a paragraph for a formatted text message.
-    Paragraph: ParagraphType
+    Paragraph: Array<ParagraphType>
     
 }
 
@@ -1045,7 +1045,7 @@ export interface CancelInfoRQType {
     $attributes: CancelInfoRQTypeAttributes
     
     // Sending own UniqueID and partner UniqueID - the receiving system needs to know which one - UniqueID acts as a reference for each system.
-    UniqueID: UniqueID_Type1
+    UniqueID: Array<UniqueID_Type1>
     
     // The person&#39;s name in a reservation.
     PersonName: Array<PersonNameType>
@@ -1550,7 +1550,7 @@ export interface ConnectionType {
     $attributes: ConnectionTypeAttributes
     
     // Specifies a connection location, preference level, min connection time, and whether the location is allowed for stopping or changing.
-    ConnectionLocation: ConnectionLocationType
+    ConnectionLocation: Array<ConnectionLocationType>
     
 }
 
@@ -2761,7 +2761,7 @@ export interface OperationTimesType {
     $attributes: OperationTimesTypeAttributes
     
     // Provides operating times of a facility.
-    OperationTime: OperationTimeType
+    OperationTime: Array<OperationTimeType>
     
 }
 
@@ -2825,7 +2825,7 @@ export interface OperationSchedulesType {
     $attributes: OperationSchedulesTypeAttributes
     
     // The OperationSchedule class defines the dates and hours of operation.
-    OperationSchedule: OperationScheduleType
+    OperationSchedule: Array<OperationScheduleType>
     
 }
 
@@ -3036,7 +3036,7 @@ export interface POS_Type {
     $attributes: POS_TypeAttributes
     
     // This holds the details about the requestor. It may be repeated to also accommodate the delivery systems.
-    Source: SourceType
+    Source: Array<SourceType>
     
 }
 
@@ -3180,7 +3180,7 @@ export interface PaymentRulesType {
     $attributes: PaymentRulesTypeAttributes
     
     // One specific payment rule associated with this reservation. For example, a date by which a deposit must be received.
-    PaymentRule: MonetaryRuleType
+    PaymentRule: Array<MonetaryRuleType>
     
 }
 
@@ -3238,7 +3238,7 @@ export interface RateCommentsType {
     $attributes: RateCommentsTypeAttributes
     
     // This may be used to provide any additional information about rates (e.g., must return by Monday at 8 AM).
-    RateComment: RateCommentType
+    RateComment: Array<RateCommentType>
     
 }
 
@@ -3266,7 +3266,7 @@ export interface RecipientInfosType {
     $attributes: RecipientInfosTypeAttributes
     
     // Contact and/or reservation information pertaining to the recipient.
-    RecipientInfo: RecipientInfoType
+    RecipientInfo: Array<RecipientInfoType>
     
 }
 
@@ -3320,7 +3320,7 @@ export interface CommentsType {
     $attributes: CommentsTypeAttributes
     
     // Comment information pertaining to the purchase. This may be used to pass a message to be printed on a note card.
-    Comment: ParagraphType
+    Comment: Array<ParagraphType>
     
 }
 
@@ -3716,7 +3716,7 @@ export interface TravelerRPHs {
     $attributes: TravelerRPHsAttributes
     
     // Provides a pointer to a traveler defined elsewhere in this message.
-    TravelerRPH: TravelerRPHType
+    TravelerRPH: Array<TravelerRPHType>
     
 }
 
@@ -3758,7 +3758,7 @@ export interface VendorMessagesType {
     $attributes: VendorMessagesTypeAttributes
     
     // A specific message associated with this vendor.
-    VendorMessage: VendorMessageType
+    VendorMessage: Array<VendorMessageType>
     
 }
 
@@ -4541,7 +4541,7 @@ export interface POS_Type1 {
     $attributes: POS_Type1Attributes
     
     // This holds details regarding the requestor. It may be repeated to also accommodate the delivery systems.
-    Source: SourceType1
+    Source: Array<SourceType1>
     
 }
 
@@ -4856,7 +4856,7 @@ export interface AvailcabinStatusType {
     productDetailsQualifier: Array<string>
     
     
-    bookingClassDetails: BookingClassDetailsType
+    bookingClassDetails: Array<BookingClassDetailsType>
     
 }
 
@@ -5048,7 +5048,7 @@ export interface MultiCorporateType {
     $attributes: MultiCorporateTypeAttributes
     
     
-    corporateId: CorporateIdType
+    corporateId: Array<CorporateIdType>
     
 }
 
@@ -5065,7 +5065,7 @@ export interface CorporateIdType {
     corporateQualifier: string
     
     
-    identity: string
+    identity: Array<string>
     
 }
 
@@ -5079,7 +5079,7 @@ export interface ItemNumberType {
     $attributes: ItemNumberTypeAttributes
     
     
-    itemNumberDetails: ItemNumberDetailsType
+    itemNumberDetails: Array<ItemNumberDetailsType>
     
 }
 
@@ -5333,7 +5333,7 @@ export interface AvailCabinConfType {
     productDetailsQualifier: Array<string>
     
     
-    bookingClassDetails: BookingClassDetailsType
+    bookingClassDetails: Array<BookingClassDetailsType>
     
 }
 
@@ -5800,7 +5800,7 @@ export interface TravellerIdentificationType {
     $attributes: TravellerIdentificationTypeAttributes
     
     
-    referenceDetails: ReferenceDetailsType
+    referenceDetails: Array<ReferenceDetailsType>
     
 }
 
@@ -6333,7 +6333,7 @@ export interface QuantityValueType {
     $attributes: QuantityValueTypeAttributes
     
     
-    quantityDetails: QuantityDetailsType1
+    quantityDetails: Array<QuantityDetailsType1>
     
 }
 
@@ -6467,7 +6467,7 @@ export interface FareCategoriesType1 {
     $attributes: FareCategoriesType1Attributes
     
     
-    fareType: string
+    fareType: Array<string>
     
 }
 
@@ -6638,7 +6638,7 @@ export interface ProductDetailsType {
     productDetailsQualifier: Array<string>
     
     
-    bookingClassDetails: BookingClassDetailsType1
+    bookingClassDetails: Array<BookingClassDetailsType1>
     
 }
 
@@ -6991,7 +6991,7 @@ export interface NbOfUnitsType {
     $attributes: NbOfUnitsTypeAttributes
     
     
-    quantityDetails: QuantityDetailsType1
+    quantityDetails: Array<QuantityDetailsType1>
     
 }
 
@@ -7324,7 +7324,7 @@ export interface PertinentQuantityType1 {
     $attributes: PertinentQuantityType1Attributes
     
     
-    quantityDetails: QuantityDetailsType1
+    quantityDetails: Array<QuantityDetailsType1>
     
 }
 
@@ -7524,7 +7524,7 @@ export interface TravellerIdentRefType {
     $attributes: TravellerIdentRefTypeAttributes
     
     
-    referenceDetails: ReferenceDetailsType1
+    referenceDetails: Array<ReferenceDetailsType1>
     
 }
 
@@ -7784,7 +7784,7 @@ export interface ItemNbType {
     $attributes: ItemNbTypeAttributes
     
     
-    itemNumberDetails: ItemNumberDetailsType1
+    itemNumberDetails: Array<ItemNumberDetailsType1>
     
 }
 
@@ -7818,7 +7818,7 @@ export interface ProductAvailabilityStatusType {
     productDetailsQualifier: Array<string>
     
     
-    bookingClassDetails: BookingClassDetailsType1
+    bookingClassDetails: Array<BookingClassDetailsType1>
     
 }
 
@@ -7832,7 +7832,7 @@ export interface QuantityItemType {
     $attributes: QuantityItemTypeAttributes
     
     
-    quantityDetails: QuantityDetailsType1
+    quantityDetails: Array<QuantityDetailsType1>
     
 }
 
@@ -8077,7 +8077,7 @@ export interface MonetTravellerRefType {
     $attributes: MonetTravellerRefTypeAttributes
     
     
-    referenceDetails: ReferenceDetailsType1
+    referenceDetails: Array<ReferenceDetailsType1>
     
 }
 
@@ -8421,7 +8421,7 @@ export interface NumberOfUnitsType {
     $attributes: NumberOfUnitsTypeAttributes
     
     // NUMBER OF UNIT DETAILS
-    unitNumberDetail: NumberOfUnitDetailsType_270113C
+    unitNumberDetail: Array<NumberOfUnitDetailsType_270113C>
     
 }
 
@@ -8452,7 +8452,7 @@ export interface AttributeType {
     $attributes: AttributeTypeAttributes
     
     // Option parameters
-    selectionDetails: AttributeInformationType
+    selectionDetails: Array<AttributeInformationType>
     
 }
 
@@ -8486,7 +8486,7 @@ export interface TravellerReferenceInformationType {
     ptc: Array<string>
     
     // Traveller details
-    traveller: TravellerDetailsType
+    traveller: Array<TravellerDetailsType>
     
 }
 
@@ -8517,7 +8517,7 @@ export interface ConsumerReferenceInformationType {
     $attributes: ConsumerReferenceInformationTypeAttributes
     
     // Customer references
-    customerReferences: ConsumerReferenceIdentificationTypeI
+    customerReferences: Array<ConsumerReferenceIdentificationTypeI>
     
 }
 
@@ -8818,7 +8818,7 @@ export interface FrequentTravellerIdentificationCodeType {
     $attributes: FrequentTravellerIdentificationCodeTypeAttributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType>
     
 }
 
@@ -8971,7 +8971,7 @@ export interface FareQualifierInformationType {
     $attributes: FareQualifierInformationTypeAttributes
     
     // Fare family combinability.
-    fareFamilyQual: string
+    fareFamilyQual: Array<string>
     
 }
 
@@ -9233,7 +9233,7 @@ export interface PricingTicketingInformationType {
     $attributes: PricingTicketingInformationTypeAttributes
     
     // Price type qualifier
-    priceType: string
+    priceType: Array<string>
     
 }
 
@@ -9329,7 +9329,7 @@ export interface CorporateIdentityType {
     corporateQualifier: string
     
     // Corporate contract number or name
-    identity: string
+    identity: Array<string>
     
 }
 
@@ -9397,7 +9397,7 @@ export interface ConversionRateType {
     $attributes: ConversionRateTypeAttributes
     
     // Detail of conversion rate of First Monetary Unit
-    conversionRateDetail: ConversionRateDetailsType
+    conversionRateDetail: Array<ConversionRateDetailsType>
     
 }
 
@@ -9428,7 +9428,7 @@ export interface FrequentTravellerIdentificationCodeType_177150S {
     $attributes: FrequentTravellerIdentificationCodeType_177150SAttributes
     
     // Frequent traveller details
-    frequentTravellerDetails: FrequentTravellerIdentificationType_249074C
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType_249074C>
     
 }
 
@@ -9666,7 +9666,7 @@ export interface CompanyIdentificationType_275415C {
     carrierQualifier: string
     
     // carrier id
-    carrierId: string
+    carrierId: Array<string>
     
 }
 
@@ -10231,7 +10231,7 @@ export interface CompanyIdentificationType_120719C {
     carrierQualifier: string
     
     // carrier id
-    carrierId: string
+    carrierId: Array<string>
     
 }
 
@@ -10265,7 +10265,7 @@ export interface GroupOfFlightsType {
     priceToBeat: Array<MonetaryInformationType>
     
     // list of flight per proposed segment
-    flightDetails: FlightDetailsType1
+    flightDetails: Array<FlightDetailsType1>
     
 }
 
@@ -10279,7 +10279,7 @@ export interface ProposedSegmentType {
     $attributes: ProposedSegmentTypeAttributes
     
     // Parameters for proposed flight group
-    flightProposal: ProposedSegmentDetailsType
+    flightProposal: Array<ProposedSegmentDetailsType>
     
     // Flight characteristics.
     flightCharacteristic: Array<string>
@@ -10354,7 +10354,7 @@ export interface TravelProductType {
     productDateTime: ProductDateTimeType_195546C
     
     // Location of departure and arrival
-    location: LocationIdentificationDetailsType
+    location: Array<LocationIdentificationDetailsType>
     
     // Company identification
     companyId: Array<CompanyIdentificationType_195544C>
@@ -10555,7 +10555,7 @@ export interface ProductTypeDetailsType_205137C {
     $attributes: ProductTypeDetailsType_205137CAttributes
     
     // indicates whether the flight is domestic or international
-    avl: string
+    avl: Array<string>
     
 }
 
@@ -10569,7 +10569,7 @@ export interface DateAndTimeInformationType {
     $attributes: DateAndTimeInformationTypeAttributes
     
     // Details on date and time
-    stopDetails: DateAndTimeDetailsType_120762C
+    stopDetails: Array<DateAndTimeDetailsType_120762C>
     
     
     DummyNET: string
@@ -10967,7 +10967,7 @@ export interface ProductTypeDetailsTypeI {
     $attributes: ProductTypeDetailsTypeIAttributes
     
     // Part of the journey (C,E,S), Codeshare service (A), Technical stop at off point in a Direct (TSD), Technical stop at off point in a COG (TSC), E-Ticket candidate (ET), Prohibited Countries (RPC, WPC)
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -11271,7 +11271,7 @@ export interface CodedAttributeType {
     $attributes: CodedAttributeTypeAttributes
     
     // Attribute details
-    attributeDetails: CodedAttributeInformationType_254574C
+    attributeDetails: Array<CodedAttributeInformationType_254574C>
     
 }
 
@@ -11319,7 +11319,7 @@ export interface TicketNumberTypeI {
     $attributes: TicketNumberTypeIAttributes
     
     
-    documentDetails: TicketNumberDetailsTypeI
+    documentDetails: Array<TicketNumberDetailsTypeI>
     
 }
 
@@ -11364,7 +11364,7 @@ export interface ConnectionTypeI {
     $attributes: ConnectionTypeIAttributes
     
     // Connection details.
-    connectionDetails: ConnectionDetailsTypeI
+    connectionDetails: Array<ConnectionDetailsTypeI>
     
 }
 
@@ -11449,7 +11449,7 @@ export interface NumberOfUnitsType_80154S {
     $attributes: NumberOfUnitsType_80154SAttributes
     
     // NUMBER OF UNIT DETAILS
-    unitNumberDetail: NumberOfUnitDetailsType
+    unitNumberDetail: Array<NumberOfUnitDetailsType>
     
 }
 
@@ -11551,7 +11551,7 @@ export interface MonetaryInformationType_80162S {
     $attributes: MonetaryInformationType_80162SAttributes
     
     // Monetary info
-    monetaryDetails: MonetaryInformationDetailsTypeI_65140C
+    monetaryDetails: Array<MonetaryInformationDetailsTypeI_65140C>
     
 }
 
@@ -11653,7 +11653,7 @@ export interface MonetaryInformationTypeI {
     $attributes: MonetaryInformationTypeIAttributes
     
     // Monetary info
-    monetaryDetails: MonetaryInformationDetailsTypeI_65141C
+    monetaryDetails: Array<MonetaryInformationDetailsTypeI_65141C>
     
 }
 
@@ -11727,7 +11727,7 @@ export interface AttributeType_61377S {
     attributeQualifier: Array<string>
     
     // Criteria details
-    attributeDetails: AttributeInformationType_97181C
+    attributeDetails: Array<AttributeInformationType_97181C>
     
 }
 
@@ -11899,7 +11899,7 @@ export interface CodedAttributeType_78500S {
     $attributes: CodedAttributeType_78500SAttributes
     
     // Atrribute details.
-    attributeDetails: CodedAttributeInformationType
+    attributeDetails: Array<CodedAttributeInformationType>
     
 }
 
@@ -11993,7 +11993,7 @@ export interface CabinIdentificationType {
     cabinQualifier: Array<string>
     
     // Cabin
-    cabin: string
+    cabin: Array<string>
     
 }
 
@@ -12104,7 +12104,7 @@ export interface StatusType {
     $attributes: StatusTypeAttributes
     
     // Status details
-    status: StatusDetailsType
+    status: Array<StatusDetailsType>
     
 }
 
@@ -12223,7 +12223,7 @@ export interface ConversionRateTypeI {
     $attributes: ConversionRateTypeIAttributes
     
     // Detail of conversion rate of First Monetary Unit.
-    conversionRateDetail: ConversionRateDetailsTypeI_179848C
+    conversionRateDetail: Array<ConversionRateDetailsTypeI_179848C>
     
 }
 
@@ -12690,7 +12690,7 @@ export interface ConversionRateTypeI_78562S {
     $attributes: ConversionRateTypeI_78562SAttributes
     
     // Details of conversion
-    conversionRateDetail: ConversionRateDetailsTypeI
+    conversionRateDetail: Array<ConversionRateDetailsTypeI>
     
 }
 
@@ -12934,7 +12934,7 @@ export interface FlightIndexType {
     requestedSegmentRef: OriginAndDestinationRequestType1
     
     // List of flights per requested segment
-    groupOfFlights: GroupOfFlightsType1
+    groupOfFlights: Array<GroupOfFlightsType1>
     
 }
 
@@ -12985,7 +12985,7 @@ export interface GroupOfFlightsType1 {
     propFlightGrDetail: ProposedSegmentType1
     
     // List of flight per Elapse Flying time
-    flightDetails: FlightDetailsType2
+    flightDetails: Array<FlightDetailsType2>
     
 }
 
@@ -12999,7 +12999,7 @@ export interface ProposedSegmentType1 {
     $attributes: ProposedSegmentType1Attributes
     
     // Parameters for proposed flight group
-    flightProposal: ProposedSegmentDetailsType1
+    flightProposal: Array<ProposedSegmentDetailsType1>
     
     // Flight characteristics.
     flightCharacteristic: Array<string>
@@ -13074,7 +13074,7 @@ export interface TravelProductType1 {
     productDateTime: ProductDateTimeType1
     
     // Location of departure and arrival
-    location: LocationIdentificationDetailsType1
+    location: Array<LocationIdentificationDetailsType1>
     
     
     companyId: Array<CompanyIdentificationType1>
@@ -13278,7 +13278,7 @@ export interface ProductTypeDetailsType_205137C1 {
     $attributes: ProductTypeDetailsType_205137C1Attributes
     
     // indicates whether the flight is domestic or international
-    avl: string
+    avl: Array<string>
     
 }
 
@@ -13292,7 +13292,7 @@ export interface DateAndTimeInformationType1 {
     $attributes: DateAndTimeInformationType1Attributes
     
     // Details on date and time
-    stopDetails: DateAndTimeDetailsType1
+    stopDetails: Array<DateAndTimeDetailsType1>
     
     
     DummyNET: string
@@ -13555,7 +13555,7 @@ export interface RecommendationType {
     recommandationSegmentsFareDetails: Array<RecommandationSegmentsFareDetailsType>
     
     // Passenger fare product details
-    paxFareProduct: PaxFareProductType
+    paxFareProduct: Array<PaxFareProductType>
     
     // Specific recommendation details
     specificRecDetails: Array<SpecificRecDetailsType>
@@ -13626,7 +13626,7 @@ export interface PricingTicketingInformationType1 {
     $attributes: PricingTicketingInformationType1Attributes
     
     // Price type qualifier
-    priceType: string
+    priceType: Array<string>
     
 }
 
@@ -13765,7 +13765,7 @@ export interface PaxFareProductType {
     feeRef: Array<ReferenceInfoType_134839S>
     
     // Passenger Reference
-    paxReference: TravellerReferenceInformationType1
+    paxReference: Array<TravellerReferenceInformationType1>
     
     // add tax details for each passenger of each recommendations.
     passengerTaxDetails: Array<TaxType2>
@@ -13774,7 +13774,7 @@ export interface PaxFareProductType {
     fare: Array<FareType1>
     
     // Fare details by Requested segment number
-    fareDetails: FareDetailsType2
+    fareDetails: Array<FareDetailsType2>
     
 }
 
@@ -13959,7 +13959,7 @@ export interface MonetaryInformationType_199534S {
     $attributes: MonetaryInformationType_199534SAttributes
     
     // Monetary information
-    monetaryDetail: MonetaryInformationDetailsType
+    monetaryDetail: Array<MonetaryInformationDetailsType>
     
 }
 
@@ -14088,7 +14088,7 @@ export interface ProductTypeDetailsType1 {
     $attributes: ProductTypeDetailsType1Attributes
     
     // Availability connection type.
-    availabilityCnxType: string
+    availabilityCnxType: Array<string>
     
 }
 
@@ -14345,7 +14345,7 @@ export interface PricingTicketingSubsequentType {
     $attributes: PricingTicketingSubsequentTypeAttributes
     
     // Passenger fare product number
-    paxFareNum: string
+    paxFareNum: Array<string>
     
 }
 
@@ -14546,7 +14546,7 @@ export interface MonetaryInformationTypeI1 {
     $attributes: MonetaryInformationTypeI1Attributes
     
     // Monetary details
-    monetaryDetails: MonetaryInformationDetailsTypeI1
+    monetaryDetails: Array<MonetaryInformationDetailsTypeI1>
     
 }
 
@@ -14657,7 +14657,7 @@ export interface FrequentTravellerIdentificationCodeType1 {
     $attributes: FrequentTravellerIdentificationCodeType1Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType1
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType1>
     
 }
 
@@ -14855,7 +14855,7 @@ export interface CodedAttributeType_78535S {
     $attributes: CodedAttributeType_78535SAttributes
     
     // Fee/reduction Id
-    attributeDetails: CodedAttributeInformationType1
+    attributeDetails: Array<CodedAttributeInformationType1>
     
 }
 
@@ -15205,7 +15205,7 @@ export interface CodedAttributeType1 {
     attributeFunction: Array<string>
     
     // Attribute details
-    attributeDetails: CodedAttributeInformationType_283620C
+    attributeDetails: Array<CodedAttributeInformationType_283620C>
     
 }
 
@@ -15307,7 +15307,7 @@ export interface ItemNumberType_166130S {
     $attributes: ItemNumberType_166130SAttributes
     
     // Item number details
-    itemNumberDetails: ItemNumberIdentificationType_234878C
+    itemNumberDetails: Array<ItemNumberIdentificationType_234878C>
     
 }
 
@@ -15463,7 +15463,7 @@ export interface ItemNumberType_176648S {
     $attributes: ItemNumberType_176648SAttributes
     
     
-    itemNumberDetails: ItemNumberIdentificationType_248537C
+    itemNumberDetails: Array<ItemNumberIdentificationType_248537C>
     
 }
 
@@ -15625,7 +15625,7 @@ export interface StatusType_182386S {
     $attributes: StatusType_182386SAttributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsType_256255C
+    statusInformation: Array<StatusDetailsType_256255C>
     
 }
 
@@ -15789,7 +15789,7 @@ export interface AttributeType1 {
     attributeQualifier: Array<string>
     
     // Criteria details
-    attributeDetails: AttributeInformationType_97181C1
+    attributeDetails: Array<AttributeInformationType_97181C1>
     
 }
 
@@ -16056,7 +16056,7 @@ export interface NumberOfUnitsType1 {
     $attributes: NumberOfUnitsType1Attributes
     
     // NUMBER OF UNIT DETAILS
-    unitNumberDetail: NumberOfUnitDetailsType_270113C1
+    unitNumberDetail: Array<NumberOfUnitDetailsType_270113C1>
     
 }
 
@@ -16087,7 +16087,7 @@ export interface AttributeType2 {
     $attributes: AttributeType2Attributes
     
     // Option parameters
-    selectionDetails: AttributeInformationType2
+    selectionDetails: Array<AttributeInformationType2>
     
 }
 
@@ -16121,7 +16121,7 @@ export interface TravellerReferenceInformationType2 {
     ptc: Array<string>
     
     // Traveller details
-    traveller: TravellerDetailsType2
+    traveller: Array<TravellerDetailsType2>
     
 }
 
@@ -16152,7 +16152,7 @@ export interface ConsumerReferenceInformationType1 {
     $attributes: ConsumerReferenceInformationType1Attributes
     
     // Customer references
-    customerReferences: ConsumerReferenceIdentificationTypeI1
+    customerReferences: Array<ConsumerReferenceIdentificationTypeI1>
     
 }
 
@@ -16453,7 +16453,7 @@ export interface FrequentTravellerIdentificationCodeType2 {
     $attributes: FrequentTravellerIdentificationCodeType2Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType2
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType2>
     
 }
 
@@ -16606,7 +16606,7 @@ export interface FareQualifierInformationType1 {
     $attributes: FareQualifierInformationType1Attributes
     
     // Fare family combinability.
-    fareFamilyQual: string
+    fareFamilyQual: Array<string>
     
 }
 
@@ -16868,7 +16868,7 @@ export interface PricingTicketingInformationType2 {
     $attributes: PricingTicketingInformationType2Attributes
     
     // Price type qualifier
-    priceType: string
+    priceType: Array<string>
     
 }
 
@@ -16964,7 +16964,7 @@ export interface CorporateIdentityType1 {
     corporateQualifier: string
     
     // Corporate contract number or name
-    identity: string
+    identity: Array<string>
     
 }
 
@@ -17032,7 +17032,7 @@ export interface ConversionRateType1 {
     $attributes: ConversionRateType1Attributes
     
     // Detail of conversion rate of First Monetary Unit
-    conversionRateDetail: ConversionRateDetailsType1
+    conversionRateDetail: Array<ConversionRateDetailsType1>
     
 }
 
@@ -17063,7 +17063,7 @@ export interface FrequentTravellerIdentificationCodeType_177150S1 {
     $attributes: FrequentTravellerIdentificationCodeType_177150S1Attributes
     
     // Frequent traveller details
-    frequentTravellerDetails: FrequentTravellerIdentificationType_249074C1
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType_249074C1>
     
 }
 
@@ -17301,7 +17301,7 @@ export interface CompanyIdentificationType_275415C1 {
     carrierQualifier: string
     
     // carrier id
-    carrierId: string
+    carrierId: Array<string>
     
 }
 
@@ -17866,7 +17866,7 @@ export interface CompanyIdentificationType_120719C1 {
     carrierQualifier: string
     
     // carrier id
-    carrierId: string
+    carrierId: Array<string>
     
 }
 
@@ -17900,7 +17900,7 @@ export interface GroupOfFlightsType2 {
     priceToBeat: Array<MonetaryInformationType2>
     
     // list of flight per proposed segment
-    flightDetails: FlightDetailsType3
+    flightDetails: Array<FlightDetailsType3>
     
 }
 
@@ -17914,7 +17914,7 @@ export interface ProposedSegmentType2 {
     $attributes: ProposedSegmentType2Attributes
     
     // Parameters for proposed flight group
-    flightProposal: ProposedSegmentDetailsType2
+    flightProposal: Array<ProposedSegmentDetailsType2>
     
     // Flight characteristics.
     flightCharacteristic: Array<string>
@@ -17989,7 +17989,7 @@ export interface TravelProductType2 {
     productDateTime: ProductDateTimeType_195546C1
     
     // Location of departure and arrival
-    location: LocationIdentificationDetailsType2
+    location: Array<LocationIdentificationDetailsType2>
     
     // Company identification
     companyId: Array<CompanyIdentificationType_195544C1>
@@ -18190,7 +18190,7 @@ export interface ProductTypeDetailsType_205137C2 {
     $attributes: ProductTypeDetailsType_205137C2Attributes
     
     // indicates whether the flight is domestic or international
-    avl: string
+    avl: Array<string>
     
 }
 
@@ -18204,7 +18204,7 @@ export interface DateAndTimeInformationType2 {
     $attributes: DateAndTimeInformationType2Attributes
     
     // Details on date and time
-    stopDetails: DateAndTimeDetailsType_120762C1
+    stopDetails: Array<DateAndTimeDetailsType_120762C1>
     
     
     DummyNET: string
@@ -18602,7 +18602,7 @@ export interface ProductTypeDetailsTypeI1 {
     $attributes: ProductTypeDetailsTypeI1Attributes
     
     // Part of the journey (C,E,S), Codeshare service (A), Technical stop at off point in a Direct (TSD), Technical stop at off point in a COG (TSC), E-Ticket candidate (ET), Prohibited Countries (RPC, WPC)
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -18906,7 +18906,7 @@ export interface CodedAttributeType2 {
     $attributes: CodedAttributeType2Attributes
     
     // Attribute details
-    attributeDetails: CodedAttributeInformationType_254574C1
+    attributeDetails: Array<CodedAttributeInformationType_254574C1>
     
 }
 
@@ -18954,7 +18954,7 @@ export interface TicketNumberTypeI1 {
     $attributes: TicketNumberTypeI1Attributes
     
     
-    documentDetails: TicketNumberDetailsTypeI1
+    documentDetails: Array<TicketNumberDetailsTypeI1>
     
 }
 
@@ -18999,7 +18999,7 @@ export interface ConnectionTypeI1 {
     $attributes: ConnectionTypeI1Attributes
     
     // Connection details.
-    connectionDetails: ConnectionDetailsTypeI1
+    connectionDetails: Array<ConnectionDetailsTypeI1>
     
 }
 
@@ -19084,7 +19084,7 @@ export interface NumberOfUnitsType_80154S1 {
     $attributes: NumberOfUnitsType_80154S1Attributes
     
     // NUMBER OF UNIT DETAILS
-    unitNumberDetail: NumberOfUnitDetailsType1
+    unitNumberDetail: Array<NumberOfUnitDetailsType1>
     
 }
 
@@ -19186,7 +19186,7 @@ export interface MonetaryInformationType_80162S1 {
     $attributes: MonetaryInformationType_80162S1Attributes
     
     // Monetary info
-    monetaryDetails: MonetaryInformationDetailsTypeI_65140C1
+    monetaryDetails: Array<MonetaryInformationDetailsTypeI_65140C1>
     
 }
 
@@ -19288,7 +19288,7 @@ export interface MonetaryInformationTypeI2 {
     $attributes: MonetaryInformationTypeI2Attributes
     
     // Monetary info
-    monetaryDetails: MonetaryInformationDetailsTypeI_65141C1
+    monetaryDetails: Array<MonetaryInformationDetailsTypeI_65141C1>
     
 }
 
@@ -19362,7 +19362,7 @@ export interface AttributeType_61377S1 {
     attributeQualifier: Array<string>
     
     // Criteria details
-    attributeDetails: AttributeInformationType_97181C2
+    attributeDetails: Array<AttributeInformationType_97181C2>
     
 }
 
@@ -19534,7 +19534,7 @@ export interface CodedAttributeType_78500S1 {
     $attributes: CodedAttributeType_78500S1Attributes
     
     // Atrribute details.
-    attributeDetails: CodedAttributeInformationType2
+    attributeDetails: Array<CodedAttributeInformationType2>
     
 }
 
@@ -19628,7 +19628,7 @@ export interface CabinIdentificationType1 {
     cabinQualifier: Array<string>
     
     // Cabin
-    cabin: string
+    cabin: Array<string>
     
 }
 
@@ -19739,7 +19739,7 @@ export interface StatusType1 {
     $attributes: StatusType1Attributes
     
     // Status details
-    status: StatusDetailsType1
+    status: Array<StatusDetailsType1>
     
 }
 
@@ -19858,7 +19858,7 @@ export interface ConversionRateTypeI1 {
     $attributes: ConversionRateTypeI1Attributes
     
     // Detail of conversion rate of First Monetary Unit.
-    conversionRateDetail: ConversionRateDetailsTypeI_179848C1
+    conversionRateDetail: Array<ConversionRateDetailsTypeI_179848C1>
     
 }
 
@@ -20325,7 +20325,7 @@ export interface ConversionRateTypeI_78562S1 {
     $attributes: ConversionRateTypeI_78562S1Attributes
     
     // Details of conversion
-    conversionRateDetail: ConversionRateDetailsTypeI1
+    conversionRateDetail: Array<ConversionRateDetailsTypeI1>
     
 }
 
@@ -20569,7 +20569,7 @@ export interface FlightIndexType1 {
     requestedSegmentRef: OriginAndDestinationRequestType3
     
     // List of flights per requested segment
-    groupOfFlights: GroupOfFlightsType3
+    groupOfFlights: Array<GroupOfFlightsType3>
     
 }
 
@@ -20620,7 +20620,7 @@ export interface GroupOfFlightsType3 {
     propFlightGrDetail: ProposedSegmentType3
     
     // List of flight per Elapse Flying time
-    flightDetails: FlightDetailsType4
+    flightDetails: Array<FlightDetailsType4>
     
 }
 
@@ -20634,7 +20634,7 @@ export interface ProposedSegmentType3 {
     $attributes: ProposedSegmentType3Attributes
     
     // Parameters for proposed flight group
-    flightProposal: ProposedSegmentDetailsType3
+    flightProposal: Array<ProposedSegmentDetailsType3>
     
     // Flight characteristics.
     flightCharacteristic: Array<string>
@@ -20709,7 +20709,7 @@ export interface TravelProductType3 {
     productDateTime: ProductDateTimeType3
     
     // Location of departure and arrival
-    location: LocationIdentificationDetailsType3
+    location: Array<LocationIdentificationDetailsType3>
     
     
     companyId: Array<CompanyIdentificationType3>
@@ -20913,7 +20913,7 @@ export interface ProductTypeDetailsType_205137C3 {
     $attributes: ProductTypeDetailsType_205137C3Attributes
     
     // indicates whether the flight is domestic or international
-    avl: string
+    avl: Array<string>
     
 }
 
@@ -20927,7 +20927,7 @@ export interface DateAndTimeInformationType3 {
     $attributes: DateAndTimeInformationType3Attributes
     
     // Details on date and time
-    stopDetails: DateAndTimeDetailsType3
+    stopDetails: Array<DateAndTimeDetailsType3>
     
     
     DummyNET: string
@@ -21190,7 +21190,7 @@ export interface RecommendationType1 {
     recommandationSegmentsFareDetails: Array<RecommandationSegmentsFareDetailsType1>
     
     // Passenger fare product details
-    paxFareProduct: PaxFareProductType1
+    paxFareProduct: Array<PaxFareProductType1>
     
     // Specific recommendation details
     specificRecDetails: Array<SpecificRecDetailsType1>
@@ -21261,7 +21261,7 @@ export interface PricingTicketingInformationType3 {
     $attributes: PricingTicketingInformationType3Attributes
     
     // Price type qualifier
-    priceType: string
+    priceType: Array<string>
     
 }
 
@@ -21400,7 +21400,7 @@ export interface PaxFareProductType1 {
     feeRef: Array<ReferenceInfoType_134839S1>
     
     // Passenger Reference
-    paxReference: TravellerReferenceInformationType3
+    paxReference: Array<TravellerReferenceInformationType3>
     
     // add tax details for each passenger of each recommendations.
     passengerTaxDetails: Array<TaxType4>
@@ -21409,7 +21409,7 @@ export interface PaxFareProductType1 {
     fare: Array<FareType2>
     
     // Fare details by Requested segment number
-    fareDetails: FareDetailsType3
+    fareDetails: Array<FareDetailsType3>
     
 }
 
@@ -21594,7 +21594,7 @@ export interface MonetaryInformationType_199534S1 {
     $attributes: MonetaryInformationType_199534S1Attributes
     
     // Monetary information
-    monetaryDetail: MonetaryInformationDetailsType1
+    monetaryDetail: Array<MonetaryInformationDetailsType1>
     
 }
 
@@ -21723,7 +21723,7 @@ export interface ProductTypeDetailsType3 {
     $attributes: ProductTypeDetailsType3Attributes
     
     // Availability connection type.
-    availabilityCnxType: string
+    availabilityCnxType: Array<string>
     
 }
 
@@ -21980,7 +21980,7 @@ export interface PricingTicketingSubsequentType1 {
     $attributes: PricingTicketingSubsequentType1Attributes
     
     // Passenger fare product number
-    paxFareNum: string
+    paxFareNum: Array<string>
     
 }
 
@@ -22181,7 +22181,7 @@ export interface MonetaryInformationTypeI3 {
     $attributes: MonetaryInformationTypeI3Attributes
     
     // Monetary details
-    monetaryDetails: MonetaryInformationDetailsTypeI3
+    monetaryDetails: Array<MonetaryInformationDetailsTypeI3>
     
 }
 
@@ -22292,7 +22292,7 @@ export interface FrequentTravellerIdentificationCodeType3 {
     $attributes: FrequentTravellerIdentificationCodeType3Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType3
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType3>
     
 }
 
@@ -22490,7 +22490,7 @@ export interface CodedAttributeType_78535S1 {
     $attributes: CodedAttributeType_78535S1Attributes
     
     // Fee/reduction Id
-    attributeDetails: CodedAttributeInformationType3
+    attributeDetails: Array<CodedAttributeInformationType3>
     
 }
 
@@ -22840,7 +22840,7 @@ export interface CodedAttributeType3 {
     attributeFunction: Array<string>
     
     // Attribute details
-    attributeDetails: CodedAttributeInformationType_283620C1
+    attributeDetails: Array<CodedAttributeInformationType_283620C1>
     
 }
 
@@ -22942,7 +22942,7 @@ export interface ItemNumberType_166130S1 {
     $attributes: ItemNumberType_166130S1Attributes
     
     // Item number details
-    itemNumberDetails: ItemNumberIdentificationType_234878C1
+    itemNumberDetails: Array<ItemNumberIdentificationType_234878C1>
     
 }
 
@@ -23098,7 +23098,7 @@ export interface ItemNumberType_176648S1 {
     $attributes: ItemNumberType_176648S1Attributes
     
     
-    itemNumberDetails: ItemNumberIdentificationType_248537C1
+    itemNumberDetails: Array<ItemNumberIdentificationType_248537C1>
     
 }
 
@@ -23260,7 +23260,7 @@ export interface StatusType_182386S1 {
     $attributes: StatusType_182386S1Attributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsType_256255C1
+    statusInformation: Array<StatusDetailsType_256255C1>
     
 }
 
@@ -23424,7 +23424,7 @@ export interface AttributeType3 {
     attributeQualifier: Array<string>
     
     // Criteria details
-    attributeDetails: AttributeInformationType_97181C3
+    attributeDetails: Array<AttributeInformationType_97181C3>
     
 }
 
@@ -23641,7 +23641,7 @@ export interface Hotel_SellType {
     bookingPayerDetails: Array<BookingPayerDetailsType>
     
     // This group is defined for roomstay. One instance per room.
-    roomStayData: RoomStayDataType
+    roomStayData: Array<RoomStayDataType>
     
     // This group is used to convey all the data related to the arrival flight details. It is used just in case of Individual booking
     arrivalFlightDetailsGrp: Array<ArrivalFlightDetailsGrpType>
@@ -23703,7 +23703,7 @@ export interface CodedAttributeType4 {
     $attributes: CodedAttributeType4Attributes
     
     
-    attributeDetails: CodedAttributeInformationType4
+    attributeDetails: Array<CodedAttributeInformationType4>
     
 }
 
@@ -23810,7 +23810,7 @@ export interface StatusTypeI_54261S {
     $attributes: StatusTypeI_54261SAttributes
     
     // Infant indicator
-    statusDetails: StatusDetailsTypeI
+    statusDetails: Array<StatusDetailsTypeI>
     
 }
 
@@ -24368,7 +24368,7 @@ export interface BillableInformationTypeU {
     $attributes: BillableInformationTypeUAttributes
     
     // This composite is used to convey the billable information.
-    billingInfo: DiagnosisTypeU
+    billingInfo: Array<DiagnosisTypeU>
     
 }
 
@@ -24885,7 +24885,7 @@ export interface NameTypeU {
     $attributes: NameTypeUAttributes
     
     // name Information
-    nameInformation: NameInformationTypeU
+    nameInformation: Array<NameInformationTypeU>
     
 }
 
@@ -24919,7 +24919,7 @@ export interface CodedAttributeType_198714S {
     attributeFunction: Array<string>
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType_276558C
+    attributeDetails: Array<CodedAttributeInformationType_276558C>
     
 }
 
@@ -25017,7 +25017,7 @@ export interface CodedAttributeType_198716S {
     attributeFunction: Array<string>
     
     
-    attributeDetails: CodedAttributeInformationType_276560C
+    attributeDetails: Array<CodedAttributeInformationType_276560C>
     
 }
 
@@ -25057,7 +25057,7 @@ export interface AttributeType4 {
     $attributes: AttributeType4Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU2
+    criteriaDetails: Array<AttributeInformationTypeU2>
     
 }
 
@@ -25133,7 +25133,7 @@ export interface RoomRateDetailsType {
     marker: HotelRoomType
     
     // Provides an Hotel recommendation number : - Booking Code - Product Index
-    hotelProductReference: ReferenceInfoType_95595S
+    hotelProductReference: Array<ReferenceInfoType_95595S>
     
     // This segment is used to convey all the information relative to non standard Booking Code and Hold Id. The Booking Code is used as the reference to the Availability response. By looking at the Booking Code, AHP will then gather all the reservation data from the context to identify the product, i.e. Room Type and Rate Plan.
     specialInfo: Array<FreeTextInformationType_121547S>
@@ -25531,7 +25531,7 @@ export interface ConsumerReferenceInformationTypeI {
     $attributes: ConsumerReferenceInformationTypeIAttributes
     
     // This composite is used to convey the different consumer numbers
-    customerReferences: ConsumerReferenceIdentificationTypeI2
+    customerReferences: Array<ConsumerReferenceIdentificationTypeI2>
     
 }
 
@@ -25653,7 +25653,7 @@ export interface StatusType_122245S {
     $attributes: StatusType_122245SAttributes
     
     // This composite is used to convey the rate status details.
-    statusInformation: StatusDetailsTypeI
+    statusInformation: Array<StatusDetailsTypeI>
     
 }
 
@@ -25880,7 +25880,7 @@ export interface StatusTypeI {
     $attributes: StatusTypeIAttributes
     
     // 0 ccInClearRequested 1 ccTravelAgent
-    statusDetails: StatusDetailsTypeI_178842C
+    statusDetails: Array<StatusDetailsTypeI_178842C>
     
 }
 
@@ -25994,7 +25994,7 @@ export interface FreeTextInformationType2 {
     freeTextDetails: FreeTextDetailsType2
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -26162,7 +26162,7 @@ export interface TravelProductInformationTypeU {
     flightDate: ProductDateAndTimeTypeU
     
     
-    boardPointDetails: LocationTypeU
+    boardPointDetails: Array<LocationTypeU>
     
     // flight info details
     productIdentification: ProductIdentificationDetailsTypeU
@@ -26224,7 +26224,7 @@ export interface AdditionalTransportDetailsTypeU {
     $attributes: AdditionalTransportDetailsTypeUAttributes
     
     // Terminal Information
-    terminalInformation: TerminalInformationTypeU
+    terminalInformation: Array<TerminalInformationTypeU>
     
 }
 
@@ -26657,7 +26657,7 @@ export interface StatusType3 {
     $attributes: StatusType3Attributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsType2
+    statusInformation: Array<StatusDetailsType2>
     
 }
 
@@ -26719,7 +26719,7 @@ export interface StatusTypeI_81808S {
     $attributes: StatusTypeI_81808SAttributes
     
     // This composite is used to convey the rate status details.
-    statusDetails: StatusDetailsTypeI1
+    statusDetails: Array<StatusDetailsTypeI1>
     
 }
 
@@ -26795,7 +26795,7 @@ export interface CodedAttributeType5 {
     $attributes: CodedAttributeType5Attributes
     
     
-    attributeDetails: CodedAttributeInformationType5
+    attributeDetails: Array<CodedAttributeInformationType5>
     
 }
 
@@ -27728,7 +27728,7 @@ export interface BillableInformationTypeU1 {
     $attributes: BillableInformationTypeU1Attributes
     
     // This composite is used to convey the billable information.
-    billingInfo: DiagnosisTypeU1
+    billingInfo: Array<DiagnosisTypeU1>
     
 }
 
@@ -28211,7 +28211,7 @@ export interface NameTypeU1 {
     $attributes: NameTypeU1Attributes
     
     // name Information
-    nameInformation: NameInformationTypeU1
+    nameInformation: Array<NameInformationTypeU1>
     
 }
 
@@ -28245,7 +28245,7 @@ export interface CodedAttributeType_198731S {
     attributeFunction: Array<string>
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType_276575C
+    attributeDetails: Array<CodedAttributeInformationType_276575C>
     
 }
 
@@ -28648,7 +28648,7 @@ export interface AttributeType5 {
     $attributes: AttributeType5Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU3
+    criteriaDetails: Array<AttributeInformationTypeU3>
     
 }
 
@@ -29377,7 +29377,7 @@ export interface FreeTextInformationType_198729S {
     freeTextDetails: FreeTextDetailsType_276572C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -29391,7 +29391,7 @@ export interface ConsumerReferenceInformationTypeI1 {
     $attributes: ConsumerReferenceInformationTypeI1Attributes
     
     // This composite is used to convey the different consumer numbers
-    customerReferences: ConsumerReferenceIdentificationTypeI3
+    customerReferences: Array<ConsumerReferenceIdentificationTypeI3>
     
 }
 
@@ -29513,7 +29513,7 @@ export interface StatusType_85690S {
     $attributes: StatusType_85690SAttributes
     
     // This composite is used to convey the rate status details.
-    statusDetails: StatusDetailsTypeI1
+    statusDetails: Array<StatusDetailsTypeI1>
     
 }
 
@@ -29766,7 +29766,7 @@ export interface StatusTypeI_81973S {
     $attributes: StatusTypeI_81973SAttributes
     
     // 0 ccInClearRequested 1 ccTravelAgent
-    statusDetails: StatusDetailsTypeI_120121C
+    statusDetails: Array<StatusDetailsTypeI_120121C>
     
 }
 
@@ -29866,7 +29866,7 @@ export interface FreeTextInformationType_120943S {
     freeTextDetails: FreeTextDetailsType_150107C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -30063,7 +30063,7 @@ export interface TravelProductInformationTypeU1 {
     flightDate: ProductDateAndTimeTypeU1
     
     
-    boardPointDetails: LocationTypeU1
+    boardPointDetails: Array<LocationTypeU1>
     
     
     productIdentification: ProductIdentificationDetailsTypeU1
@@ -30125,7 +30125,7 @@ export interface AdditionalTransportDetailsTypeU1 {
     $attributes: AdditionalTransportDetailsTypeU1Attributes
     
     // Terminal Information
-    terminalInformation: TerminalInformationTypeU1
+    terminalInformation: Array<TerminalInformationTypeU1>
     
 }
 
@@ -30363,7 +30363,7 @@ export interface ErrorDescriptionType {
     freeTextDetails: FreeTextDetailsType
     
     
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -30509,7 +30509,7 @@ export interface HotelSalesRequirementsSectionType {
     marketingText: Array<MarketingTextType>
     
     
-    hotelSalesRequCategorySection: HotelSalesRequCategorySectionType
+    hotelSalesRequCategorySection: Array<HotelSalesRequCategorySectionType>
     
 }
 
@@ -30714,7 +30714,7 @@ export interface MarketingTextType {
     freeTextDetails: FreeTextDetailsType
     
     
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -30812,7 +30812,7 @@ export interface InfoMsgAndCancelPoliciesType {
     freeTextDetails: FreeTextDetailsType
     
     
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -31021,7 +31021,7 @@ export interface TaxFeeDescriptionType {
     freeTextDetails: FreeTextDetailsType
     
     
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -31183,7 +31183,7 @@ export interface RoomRateDescriptionType {
     freeTextDetails: FreeTextDetailsType
     
     
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -31276,7 +31276,7 @@ export interface FormOfPaymentDescriptionType {
     freeTextDetails: FreeTextDetailsType
     
     
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -31389,7 +31389,7 @@ export interface AdditionalRulesFromSellType {
     freeTextDetails: FreeTextDetailsType
     
     
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -31614,7 +31614,7 @@ export interface CommissionDescriptionType {
     freeTextDetails: FreeTextDetailsType
     
     
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -32128,7 +32128,7 @@ export interface ItineraryDetailsType {
     message: Array<MessageActionDetailsTypeI>
     
     // Contains segment information.
-    segmentInformation: SegmentInformationType
+    segmentInformation: Array<SegmentInformationType>
     
 }
 
@@ -32285,7 +32285,7 @@ export interface ProductTypeDetailsTypeI2 {
     $attributes: ProductTypeDetailsTypeI2Attributes
     
     // The flight indicator gives further detail about the flight: Ex:ET.
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -32691,7 +32691,7 @@ export interface ProductTypeDetailsTypeI3 {
     $attributes: ProductTypeDetailsTypeI3Attributes
     
     // It gives some functional information on the flight. ETK candidate etc...
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -32835,7 +32835,7 @@ export interface RelatedProductInformationTypeI2 {
     quantity: number
     
     // Status, Coded
-    statusCode: string
+    statusCode: Array<string>
     
 }
 
@@ -32994,7 +32994,7 @@ export interface FreeTextInformationType_185487S {
     freeTextDetails: FreeTextDetailsType_260188C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -33330,7 +33330,7 @@ export interface CodedAttributeType6 {
     $attributes: CodedAttributeType6Attributes
     
     
-    attributeDetails: CodedAttributeInformationType_142108C
+    attributeDetails: Array<CodedAttributeInformationType_142108C>
     
 }
 
@@ -33398,7 +33398,7 @@ export interface StatusType_186270S {
     $attributes: StatusType_186270SAttributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsType_260968C
+    statusInformation: Array<StatusDetailsType_260968C>
     
 }
 
@@ -33893,7 +33893,7 @@ export interface NumberOfUnitsType_76106S {
     $attributes: NumberOfUnitsType_76106SAttributes
     
     // Number of Unit Details
-    quantityDetails: NumberOfUnitDetailsTypeI3
+    quantityDetails: Array<NumberOfUnitDetailsTypeI3>
     
 }
 
@@ -34426,7 +34426,7 @@ export interface RelatedProductInformationTypeI3 {
     quantity: Array<number>
     
     // see code list
-    status: string
+    status: Array<string>
     
 }
 
@@ -34647,7 +34647,7 @@ export interface SelectionDetailsTypeI_201122S {
     $attributes: SelectionDetailsTypeI_201122SAttributes
     
     // Only the first occurrence of the composite is mandatory. Up to 10 occurrences of the composite.
-    selection: SelectionDetailsInformationTypeI3
+    selection: Array<SelectionDetailsInformationTypeI3>
     
 }
 
@@ -34905,7 +34905,7 @@ export interface CountryCodeListType1 {
     $attributes: CountryCodeListType1Attributes
     
     // ISO country code of the DESTINATION of the trip.
-    destinationCountryCode: string
+    destinationCountryCode: Array<string>
     
 }
 
@@ -35423,7 +35423,7 @@ export interface FreeTextInformationType_128813S {
     freeTextDetails: FreeTextDetailsType_187464C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -35502,7 +35502,7 @@ export interface DateAndTimeInformationType4 {
     $attributes: DateAndTimeInformationType4Attributes
     
     // DATE AND TIME DETAILS
-    dateAndTimeDetails: DateAndTimeDetailsType4
+    dateAndTimeDetails: Array<DateAndTimeDetailsType4>
     
 }
 
@@ -36114,7 +36114,7 @@ export interface FreeTextInformationType_128667S {
     freeTextDetails: FreeTextDetailsType_187464C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -37223,7 +37223,7 @@ export interface HotelReservationInfoType {
     roomRateDetails: Array<RoomRateDetailsType2>
     
     // This segment is used to convey the confirmation number or the cancellation number. control type (9958) is: - 2 for Confirmation reference - X for cancellation reference - O for on request reference
-    cancelOrConfirmNbr: ReservationControlInformationTypeI_196503S
+    cancelOrConfirmNbr: Array<ReservationControlInformationTypeI_196503S>
     
     // indicate the roomstay index in case of groups
     roomstayIndex: Array<ItemNumberTypeU_33258S>
@@ -37784,7 +37784,7 @@ export interface BillableInformationTypeU2 {
     $attributes: BillableInformationTypeU2Attributes
     
     // This composite is used to convey the billable information.
-    billingInfo: DiagnosisTypeU2
+    billingInfo: Array<DiagnosisTypeU2>
     
 }
 
@@ -37815,7 +37815,7 @@ export interface ConsumerReferenceInformationTypeI2 {
     $attributes: ConsumerReferenceInformationTypeI2Attributes
     
     // Consumer reference information
-    customerReferences: ConsumerReferenceIdentificationTypeI4
+    customerReferences: Array<ConsumerReferenceIdentificationTypeI4>
     
 }
 
@@ -37966,7 +37966,7 @@ export interface FormOfPaymentTypeI_29553S {
     $attributes: FormOfPaymentTypeI_29553SAttributes
     
     // FOP details
-    formOfPayment: FormOfPaymentDetailsTypeI3
+    formOfPayment: Array<FormOfPaymentDetailsTypeI3>
     
 }
 
@@ -38246,7 +38246,7 @@ export interface AdditionalTransportDetailsTypeU2 {
     $attributes: AdditionalTransportDetailsTypeU2Attributes
     
     // Terminal Information
-    terminalInformation: TerminalInformationTypeU2
+    terminalInformation: Array<TerminalInformationTypeU2>
     
 }
 
@@ -38314,7 +38314,7 @@ export interface TypicalCarDataType {
     companyIdentification: CompanyInformationType2
     
     // Car AVL pickup and dropoff location parameters (for Amadeus and Provider locations). Used as well to transport the Collection and Delivery place information.
-    locationInfo: PlaceLocationIdentificationTypeU_136699S
+    locationInfo: Array<PlaceLocationIdentificationTypeU_136699S>
     
     // This group is used to carry Delivery and Collection information in a structured way. This group is exclusive with LOC segment which have 2 repetitions to carry unstructured Delivery and Collection information.
     deliveryAndCollection: Array<DeliveryAndCollectionType>
@@ -38420,7 +38420,7 @@ export interface VehicleTypeOptionType_198208C {
     vehicleTypeOwner: string
     
     // This data element is used to convey the SIPP code(s) selection criteria.
-    vehicleRentalPrefType: string
+    vehicleRentalPrefType: Array<string>
     
 }
 
@@ -38486,7 +38486,7 @@ export interface FreeTextInformationType_136708S {
     freeTextDetails: FreeTextDetailsType_198207C
     
     // Free text
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -39106,7 +39106,7 @@ export interface TariffInformationTypeI_136714S {
     tariffInfo: Array<TariffInformationDetailsTypeI_198216C>
     
     // Tax, Surcharge, Coverage, Coupon details Repetition are used to carry: - General Info (estimated + name...) - Tariff per day / Max - Tariff per weekend / Max - Tariff per week / Max - Tariff per month / Max - Tariff per rental / Max - Excess amount - Liability amount
-    chargeDetails: AssociatedChargesInformationTypeI_198218C
+    chargeDetails: Array<AssociatedChargesInformationTypeI_198218C>
     
 }
 
@@ -39226,7 +39226,7 @@ export interface TariffInformationTypeI_136719S {
     tariffInfo: Array<TariffInformationDetailsTypeI_198216C>
     
     // Tax, Surcharge, Coverage, Coupon details
-    chargeDetails: AssociatedChargesInformationTypeI_198218C
+    chargeDetails: Array<AssociatedChargesInformationTypeI_198218C>
     
 }
 
@@ -39288,7 +39288,7 @@ export interface RuleInformationTypeU_136720S {
     $attributes: RuleInformationTypeU_136720SAttributes
     
     // Rule details
-    ruleDetails: RuleDetailsTypeU_198224C
+    ruleDetails: Array<RuleDetailsTypeU_198224C>
     
     // Associated Rule Text
     ruleText: Array<RuleTextTypeU_198225C>
@@ -39340,7 +39340,7 @@ export interface RuleTextTypeU_198225C {
     textType: string
     
     // Rule Information
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -39557,7 +39557,7 @@ export interface SpecialEquipmentDetailsType {
     additionalInfo: Array<FreeTextInformationType_136715S>
     
     // First TFF occurence convey main data: - 013 spec. equipment code - Qualifier (Included / Optional) - Spec. equipment name Up to 5 next occurences convey tarrif periods. - 013 spec. equipment code - converted indicator - amount/currency - period (/day, /weekend, /week, /month, /rental) - max amount / currency
-    specialEquipmentTariff: TariffInformationTypeI_136714S
+    specialEquipmentTariff: Array<TariffInformationTypeI_136714S>
     
 }
 
@@ -39591,7 +39591,7 @@ export interface FreeTextInformationType_136715S {
     freeTextDetails: FreeTextDetailsType_198207C
     
     // 1 or 2 lines of free text
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -39605,7 +39605,7 @@ export interface FormOfPaymentTypeI3 {
     $attributes: FormOfPaymentTypeI3Attributes
     
     // Fop details
-    formOfPayment: FormOfPaymentDetailsTypeI_198189C
+    formOfPayment: Array<FormOfPaymentDetailsTypeI_198189C>
     
 }
 
@@ -39905,7 +39905,7 @@ export interface AttributeType_136691S {
     criteriaSetType: string
     
     // Details for the attribute type. LEI:Y for leisure booking CLP:Y for clip booking
-    criteriaDetails: AttributeInformationTypeU_198185C
+    criteriaDetails: Array<AttributeInformationTypeU_198185C>
     
 }
 
@@ -39948,7 +39948,7 @@ export interface CruiseBusinessDataType {
     sailingDateInformation: StructuredPeriodInformationType_8955S
     
     // Details of passengers for the sailing trip. For a cruise booking, the passenger names elements from the PNR can be different from the passengers in the cruise segment. They are identical at booking creation time. But the cruise providers allow adding passenger name(s) to an existing booking. That is not possible in an Amadeus PNR. Therefore, the name information had to be stored in the cruise segment itself.
-    passengerInfo: TravellerInformationTypeI_8956S
+    passengerInfo: Array<TravellerInformationTypeI_8956S>
     
     // Booking information, including confirmation and cancellation number, and a flag telling where the booking has been originally created.
     bookingDetails: Array<BookingDetailsType>
@@ -40155,7 +40155,7 @@ export interface ReservationControlInformationTypeI_8957S {
     $attributes: ReservationControlInformationTypeI_8957SAttributes
     
     // Cruise booking reference.
-    reservation: ReservationControlInformationDetailsTypeI_16352C
+    reservation: Array<ReservationControlInformationDetailsTypeI_16352C>
     
 }
 
@@ -40352,7 +40352,7 @@ export interface TrainDataType_48813G {
     trainProductInfo: TrainProductInformationType
     
     // Trip dates and times
-    tripDateTime: StructuredDateTimeInformationType_129285S
+    tripDateTime: Array<StructuredDateTimeInformationType_129285S>
     
     // Departure station location
     depLocation: PlaceLocationIdentificationTypeU_32347S
@@ -40515,7 +40515,7 @@ export interface RailLegDataType_48811G {
     reservableStatus: Array<QuantityAndActionTypeU_32609S>
     
     // Leg departure and arrival dates and times
-    legDateTime: StructuredDateTimeInformationType_129285S
+    legDateTime: Array<StructuredDateTimeInformationType_129285S>
     
     // Departure station location
     depLocation: PlaceLocationIdentificationTypeU_32347S
@@ -40648,7 +40648,7 @@ export interface FreeTextInformationType_20551S {
     freeTextDetails: FreeTextDetailsType4
     
     // SVCs / Service Information (Amtrak). 63 characters maximum length, and a maximum of 5 lines per train segment.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -40790,7 +40790,7 @@ export interface TourInformationType {
     tourDescriptionInfo: Array<AdditionalProductDetailsTypeU>
     
     // Conveys booking reference and unique key in the provider system
-    bookingReferenceInfo: ReservationControlInformationTypeU
+    bookingReferenceInfo: Array<ReservationControlInformationTypeU>
     
     // Conveys the status of the booking or of the ticket and the number in party. The composite E958 is M2: -One instance can be the booking&#39;s status -The other can be the TKOK status
     statusInfo: QuantityAndActionTypeU_25425S
@@ -40811,7 +40811,7 @@ export interface TourInformationType {
     systemProviderInfo: Array<TransportIdentifierType_25440S>
     
     // Conveys information about the tour operator (name, code ...)
-    tourOperatorInfo: CompanyInformationType_25420S
+    tourOperatorInfo: Array<CompanyInformationType_25420S>
     
     // Bokking source (/BS)
     bookingSource: Array<UserIdentificationType_25447S>
@@ -40823,7 +40823,7 @@ export interface TourInformationType {
     tourAccountDetails: Array<TourAccountDetailsType>
     
     // Conveys information about the booked products (arrival/departure information, product identification, meal plan information, occupation ...)
-    tourProductDetails: TourServiceDetailsType
+    tourProductDetails: Array<TourServiceDetailsType>
     
 }
 
@@ -41108,7 +41108,7 @@ export interface QuantityAndActionTypeU_25425S {
     $attributes: QuantityAndActionTypeU_25425SAttributes
     
     // Conveys quantity and status information
-    quantityActionDetails: QuantityAndActionDetailsTypeU_46321C
+    quantityActionDetails: Array<QuantityAndActionDetailsTypeU_46321C>
     
 }
 
@@ -41241,7 +41241,7 @@ export interface FreeTextInformationType_25445S {
     freeTextDetails: FreeTextDetailsType_46357C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -41391,7 +41391,7 @@ export interface TourAccountDetailsType {
     $attributes: TourAccountDetailsTypeAttributes
     
     // Total price of the Tours. The segment can be repeated in case the total price is written in more than one currency. This trigger is M20 and not M1, but there is no grammar problem with that. There would be a problem if the group TURP was repeated, but this is not and shall never be the case.
-    tourTotalPrices: TariffInformationTypeU_25419S
+    tourTotalPrices: Array<TariffInformationTypeU_25419S>
     
     // The remaining amount to pay, for each Tour Operator
     remainingAmountsDetails: Array<RemainingAmountsDetailsType>
@@ -41414,7 +41414,7 @@ export interface TariffInformationTypeU_25419S {
     $attributes: TariffInformationTypeU_25419SAttributes
     
     // Information about the tariffs of a Tour: tour price, product price, additional price
-    tariffInformation: TariffInformationDetailsTypeU_46314C
+    tariffInformation: Array<TariffInformationDetailsTypeU_46314C>
     
     // This composite is used to describe the commissions on the tariff
     associatedChargesInformation: Array<AssociatedChargesInformationTypeU1>
@@ -41615,7 +41615,7 @@ export interface TourServiceDetailsType {
     passengerAssociation: Array<ReferenceInfoType_25422S>
     
     // Conveys the service details which composes a tour product. If the product is a package this group can be repeted.
-    serviceDetails: ServiceDetailsType
+    serviceDetails: Array<ServiceDetailsType>
     
 }
 
@@ -42150,7 +42150,7 @@ export interface TravelProductInformationTypeU_24954S {
     itineraryDateTimeInfo: Array<ProductDateAndTimeTypeU_45634C>
     
     // Conveys and itinerary leg embarkation and the disembarkation ports descriptions
-    boardPortDetails: LocationTypeU_45633C
+    boardPortDetails: Array<LocationTypeU_45633C>
     
     // Internal reference for the leg.
     lineNumber: string
@@ -42269,7 +42269,7 @@ export interface ReferenceInformationTypeI_25132S {
     $attributes: ReferenceInformationTypeI_25132SAttributes
     
     // Conveys the passenger reference.
-    referenceDetails: ReferencingDetailsTypeI_45901C
+    referenceDetails: Array<ReferencingDetailsTypeI_45901C>
     
 }
 
@@ -43033,7 +43033,7 @@ export interface SelectionDetailsType4 {
     $attributes: SelectionDetailsType4Attributes
     
     // Provides information about how the EC was booked.
-    bookingChannel: SelectionDetailsInformationTypeU
+    bookingChannel: Array<SelectionDetailsInformationTypeU>
     
 }
 
@@ -43413,7 +43413,7 @@ export interface CodedAttributeType_129339S {
     attributeFunction: Array<string>
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType_188409C
+    attributeDetails: Array<CodedAttributeInformationType_188409C>
     
 }
 
@@ -44096,7 +44096,7 @@ export interface ProductIdentificationType2 {
     $attributes: ProductIdentificationType2Attributes
     
     
-    productData: ProductIdentificationDetailsType
+    productData: Array<ProductIdentificationDetailsType>
     
 }
 
@@ -44293,7 +44293,7 @@ export interface FreeTextInformationType_36740S {
     freeTextDetails: FreeTextDetailsType_62856C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -44444,7 +44444,7 @@ export interface StatusType_95218S {
     $attributes: StatusType_95218SAttributes
     
     // The Security Status. This may contain the allowed Permission to View a data field.
-    statusDetails: StatusDetailsType_142998C
+    statusDetails: Array<StatusDetailsType_142998C>
     
 }
 
@@ -44678,7 +44678,7 @@ export interface FreeTextInformationType_128665S {
     freeTextDetails: FreeTextDetailsType_187464C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -44826,7 +44826,7 @@ export interface QuantityType {
     $attributes: QuantityTypeAttributes
     
     // To specify an appropriate quantity.
-    quantityDetails: QuantityDetailsType
+    quantityDetails: Array<QuantityDetailsType>
     
 }
 
@@ -45292,7 +45292,7 @@ export interface CarInfosType {
     vehicleInformation: VehicleInformationType
     
     // Pick-up and Drop-off locations information
-    pickupDropoffLocations: PickupDropoffLocationsType
+    pickupDropoffLocations: Array<PickupDropoffLocationsType>
     
     // This segment is used to convey the pick-up and drop-off dates and times of the rental.
     pickupDropoffTimes: StructuredPeriodInformationType_128769S
@@ -45356,7 +45356,7 @@ export interface VehicleTypeOptionType {
     vehicleTypeOwner: Array<string>
     
     // This data element is used to convey the SIPP code(s) selection criteria.
-    vehicleRentalPrefType: string
+    vehicleRentalPrefType: Array<string>
     
 }
 
@@ -45556,7 +45556,7 @@ export interface ConsumerReferenceInformationType2 {
     $attributes: ConsumerReferenceInformationType2Attributes
     
     // Customer references
-    customerReferences: ConsumerReferenceIdentificationType
+    customerReferences: Array<ConsumerReferenceIdentificationType>
     
 }
 
@@ -45607,7 +45607,7 @@ export interface NumberOfUnitsType2 {
     $attributes: NumberOfUnitsType2Attributes
     
     // Information on the elements we want to count.
-    quantityDetails: NumberOfUnitDetailsType2
+    quantityDetails: Array<NumberOfUnitDetailsType2>
     
 }
 
@@ -45752,7 +45752,7 @@ export interface AttributeType6 {
     $attributes: AttributeType6Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU_142127C
+    criteriaDetails: Array<AttributeInformationTypeU_142127C>
     
 }
 
@@ -48005,7 +48005,7 @@ export interface AttributeType_94576S {
     criteriaSetType: string
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU_142127C
+    criteriaDetails: Array<AttributeInformationTypeU_142127C>
     
 }
 
@@ -48260,7 +48260,7 @@ export interface QuantityType_94558S {
     $attributes: QuantityType_94558SAttributes
     
     // To specify an appropriate quantity.
-    quantityDetails: QuantityDetailsTypeI_142179C
+    quantityDetails: Array<QuantityDetailsTypeI_142179C>
     
 }
 
@@ -48314,7 +48314,7 @@ export interface FreeTextInformationType_79018S {
     freeTextDetails: FreeTextDetailsType4
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -48677,7 +48677,7 @@ export interface CodedAttributeType_94497S {
     attributeFunction: string
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType6
+    attributeDetails: Array<CodedAttributeInformationType6>
     
 }
 
@@ -49144,7 +49144,7 @@ export interface FreeTextInformationType_94526S {
     freeTextDetails: FreeTextDetailsType_142141C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -49400,7 +49400,7 @@ export interface ItemNumberType_195219S {
     $attributes: ItemNumberType_195219SAttributes
     
     
-    itemNumberDetails: ItemNumberIdentificationType_272901C
+    itemNumberDetails: Array<ItemNumberIdentificationType_272901C>
     
 }
 
@@ -49561,7 +49561,7 @@ export interface AttributeType_195221S {
     $attributes: AttributeType_195221SAttributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU_142127C
+    criteriaDetails: Array<AttributeInformationTypeU_142127C>
     
     
     DummyNET: string
@@ -49672,7 +49672,7 @@ export interface FareBasisCodesLineType {
     $attributes: FareBasisCodesLineTypeAttributes
     
     // Fare element information
-    fareElement: FareElementType
+    fareElement: Array<FareElementType>
     
 }
 
@@ -49721,7 +49721,7 @@ export interface FareDataType {
     issueIdentifier: string
     
     // To specify the type of monetary amount, the amount and the currency code
-    monetaryInfo: MonetaryInformationDetailsTypeI_8308C
+    monetaryInfo: Array<MonetaryInformationDetailsTypeI_8308C>
     
     // Tax fields
     taxFields: Array<TaxFieldsType>
@@ -49999,7 +49999,7 @@ export interface DocumentDetailsGroupType {
     airlineServiceFeeGroup: Array<OBfeesGroupType>
     
     // Coupons of the Document
-    couponDetailsGroup: CouponDetailsGroupType
+    couponDetailsGroup: Array<CouponDetailsGroupType>
     
     // Fare Component Details Group.
     fareComponentDetailsGroup: Array<FareComponentDetailsType>
@@ -50220,7 +50220,7 @@ export interface FreeTextInformationType4 {
     freeTextDetails: FreeTextDetailsType4
     
     
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -50530,7 +50530,7 @@ export interface CodedAttributeType_79464S {
     $attributes: CodedAttributeType_79464SAttributes
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType_122050C
+    attributeDetails: Array<CodedAttributeInformationType_122050C>
     
 }
 
@@ -51136,7 +51136,7 @@ export interface FareComponentDetailsType {
     fareFamilyOwner: Array<TransportIdentifierType2>
     
     // Used to specify coupons included in the fare component or in the bound.
-    couponDetailsGroup: CouponDetailsType
+    couponDetailsGroup: Array<CouponDetailsType>
     
 }
 
@@ -51150,7 +51150,7 @@ export interface ItemNumberType4 {
     $attributes: ItemNumberType4Attributes
     
     // Item identification: number of the fare component or of the bound.
-    itemNumberDetails: ItemNumberIdentificationType4
+    itemNumberDetails: Array<ItemNumberIdentificationType4>
     
 }
 
@@ -51671,7 +51671,7 @@ export interface StatusTypeI_127261S {
     $attributes: StatusTypeI_127261SAttributes
     
     // Provides a set of coded characteristics of the customer.
-    statusDetails: StatusDetailsTypeI_185722C
+    statusDetails: Array<StatusDetailsTypeI_185722C>
     
 }
 
@@ -51934,7 +51934,7 @@ export interface FreeTextInformationType_128791S {
     freeTextDetails: FreeTextDetailsType_187592C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -52215,7 +52215,7 @@ export interface OptionalPNRActionsType {
     $attributes: OptionalPNRActionsTypeAttributes
     
     // 0 No Special Processing 10 - 49 PNR processing options 50 - 99 PNRACC options 100 - 149 Other Opt 150 - 199 Error Processing 200 - 229 Car Opt 230 - 259 Hotel Opt 260 - 299 Air + AUX Opt 300 - 329 Ticketing Opt
-    optionCode: number
+    optionCode: Array<number>
     
 }
 
@@ -52737,7 +52737,7 @@ export interface SelectionDetailsTypeI2 {
     $attributes: SelectionDetailsTypeI2Attributes
     
     // level of sell to be processed
-    selection: SelectionDetailsInformationTypeI4
+    selection: Array<SelectionDetailsInformationTypeI4>
     
 }
 
@@ -53997,7 +53997,7 @@ export interface OriginalIssueType {
     voucherIndicator: Array<string>
     
     // 1st occurrence for original issue 2 occurrences for issues in exchange
-    issue: IssueInformationType
+    issue: Array<IssueInformationType>
     
     // Base fare amount
     baseFare: Array<number>
@@ -54088,7 +54088,7 @@ export interface FormOfPaymentTypeI4 {
     $attributes: FormOfPaymentTypeI4Attributes
     
     // form of payment details
-    fop: FormOfPaymentDetailsTypeI4
+    fop: Array<FormOfPaymentDetailsTypeI4>
     
 }
 
@@ -54497,7 +54497,7 @@ export interface OptionalPNRActionsType1 {
     $attributes: OptionalPNRActionsType1Attributes
     
     // 51 - return all RTSVC 52 - return line numbers 53 - return RLRs 55 - do not return individual names of a group 101 - hard copy print 201 - return RTSVC for car 231 - return RTSVC for hotel 261 - return RTSVC for air 300 - TY mode
-    optionCode: number
+    optionCode: Array<number>
     
 }
 
@@ -54920,7 +54920,7 @@ export interface OptionalPNRActionsType2 {
     $attributes: OptionalPNRActionsType2Attributes
     
     // Processing options. Only the option 0, 10, 11 and 20 are supported.
-    optionCode: number
+    optionCode: Array<number>
     
 }
 
@@ -55347,7 +55347,7 @@ export interface Queue_PlacePNRType {
     placementOption: SelectionDetailsTypeI3
     
     // provides upto 10 target offices where the PNR/Msg can be queue placed to
-    targetDetails: TargetDetailsType
+    targetDetails: Array<TargetDetailsType>
     
     // contains the record locator to be queue placed
     recordLocator: ReservationControlInformationTypeI7
@@ -55661,7 +55661,7 @@ export interface FreeTextInformationType6 {
     freeTextDetails: Array<FreeTextDetailsType6>
     
     // Free text
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -55783,7 +55783,7 @@ export interface ConsumerReferenceInformationType3 {
     $attributes: ConsumerReferenceInformationType3Attributes
     
     // Customer references
-    customerReferences: ConsumerReferenceIdentificationType1
+    customerReferences: Array<ConsumerReferenceIdentificationType1>
     
 }
 
@@ -56004,7 +56004,7 @@ export interface AvailabilityProductionInfoType {
     $attributes: AvailabilityProductionInfoTypeAttributes
     
     // Multidate request. Defines date and time of an availability request. A request may contain up to 31 days. These 31 days may include single dates or date ranges.
-    availabilityDetails: ProductDateTimeType4
+    availabilityDetails: Array<ProductDateTimeType4>
     
     // Departure Location
     departureLocationInfo: Array<LocationDetailsType>
@@ -56248,7 +56248,7 @@ export interface ClassQueryType {
     $attributes: ClassQueryTypeAttributes
     
     // Specification of a class type
-    productClassDetails: ProductDetailsType3
+    productClassDetails: Array<ProductDetailsType3>
     
     // Indicates if the request is expanded
     expandClassRequest: Array<string>
@@ -56390,7 +56390,7 @@ export interface CabinClassDesignationType3 {
     expandCabinIndicator: Array<string>
     
     // Cabin type
-    cabinClassOfServiceList: number
+    cabinClassOfServiceList: Array<number>
     
 }
 
@@ -56495,7 +56495,7 @@ export interface UnaccompaniedMinorRequest {
     $attributes: UnaccompaniedMinorRequestAttributes
     
     // Unaccompanied minor&#39;s age
-    umAge: number
+    umAge: Array<number>
     
 }
 
@@ -56907,7 +56907,7 @@ export interface ProductTypeDetailsType6 {
     $attributes: ProductTypeDetailsType6Attributes
     
     // Information on the flight type
-    productIndicators: string
+    productIndicators: Array<string>
     
 }
 
@@ -57457,7 +57457,7 @@ export interface TravelChoiceMessageType {
     summaryAndAvailabilityLines: PrefAndPolicySummaryAndAvailLineType
     
     // To specify air preferences
-    preferencesSection: PreferencesSectionType
+    preferencesSection: Array<PreferencesSectionType>
     
 }
 
@@ -58044,7 +58044,7 @@ export interface ProductTypeDetailsTypeI5 {
     $attributes: ProductTypeDetailsTypeI5Attributes
     
     
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -58715,7 +58715,7 @@ export interface StatusType5 {
     $attributes: StatusType5Attributes
     
     // List of processing indicators
-    statusInformation: StatusDetailsType4
+    statusInformation: Array<StatusDetailsType4>
     
 }
 
@@ -59348,7 +59348,7 @@ export interface CabinClassSeatRowRangeDetailsTypeI {
     $attributes: CabinClassSeatRowRangeDetailsTypeIAttributes
     
     // Specifies the first and last row number within a particular cabin class compartment.
-    number: number
+    number: Array<number>
     
 }
 
@@ -59362,7 +59362,7 @@ export interface SmokingAreaSeatRowRangeDetailsTypeI {
     $attributes: SmokingAreaSeatRowRangeDetailsTypeIAttributes
     
     // Specifies the first and last row number within a particular smoking seat row range.
-    number: number
+    number: Array<number>
     
 }
 
@@ -59376,7 +59376,7 @@ export interface OverwingSeatRowRangeTypeI {
     $attributes: OverwingSeatRowRangeTypeIAttributes
     
     // To specify the first and last row number in the range.
-    number: number
+    number: Array<number>
     
 }
 
@@ -59564,7 +59564,7 @@ export interface FreeTextInformationType7 {
     freeTextDetails: FreeTextDetailsType7
     
     // This field contains the commercial name
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -59607,7 +59607,7 @@ export interface CustomerCentricDataType {
     travellerDetails: Array<TravellerInformationTypeI4>
     
     // Prices of chargeables seats for a given passenger
-    seatPrice: SeatPriceType
+    seatPrice: Array<SeatPriceType>
     
 }
 
@@ -59713,7 +59713,7 @@ export interface SeatPriceType {
     enrichedContent: Array<CommunicationContactType1>
     
     // Position of the seats by rows, with optional seat occupation at passenger level
-    rowDetails: RowDetailsTypeI
+    rowDetails: Array<RowDetailsTypeI>
     
 }
 
@@ -59727,7 +59727,7 @@ export interface MonetaryInformationTypeI7 {
     $attributes: MonetaryInformationTypeI7Attributes
     
     // Monetary Details
-    monetaryDetails: MonetaryInformationDetailsTypeI7
+    monetaryDetails: Array<MonetaryInformationDetailsTypeI7>
     
 }
 
@@ -59850,7 +59850,7 @@ export interface CodedAttributeType7 {
     $attributes: CodedAttributeType7Attributes
     
     // Attribute details
-    attributeDetails: CodedAttributeInformationType8
+    attributeDetails: Array<CodedAttributeInformationType8>
     
 }
 
@@ -59966,7 +59966,7 @@ export interface Ticket_CreateTSMFromPricingType {
     pnrLocatorData: Array<ReservationControlInformationTypeI12>
     
     // List of recommendations to take into account for TSM creation.
-    psaList: PsaListType
+    psaList: Array<PsaListType>
     
 }
 
@@ -60271,7 +60271,7 @@ export interface Ticket_CreateTSTFromPricingType {
     pnrLocatorData: Array<ReservationControlInformationTypeI14>
     
     // List of fares to take into account for TST creation. A fare has been calculated for several . As we can have 10 TST per Pax, 99 passenger per PNR, and a TST split with the Infant , the max number of TST is 1980.
-    psaList: PsaListType1
+    psaList: Array<PsaListType1>
     
 }
 
@@ -60582,7 +60582,7 @@ export interface FOP_CreateFormOfPaymentType {
     reservationControlInformation: Array<ReservationControlInformationType_182595S>
     
     // The group can contain up to 127 different FOPs
-    fopGroup: FopGroupType
+    fopGroup: Array<FopGroupType>
     
 }
 
@@ -60627,7 +60627,7 @@ export interface StatusType_84967S {
     $attributes: StatusType_84967SAttributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsTypeI_129334C
+    statusInformation: Array<StatusDetailsTypeI_129334C>
     
     
     DummyNET: string
@@ -60984,7 +60984,7 @@ export interface StatusType_190200S {
     $attributes: StatusType_190200SAttributes
     
     // used to describe one processing option.
-    statusInformation: StatusDetailsType_266072C
+    statusInformation: Array<StatusDetailsType_266072C>
     
 }
 
@@ -61226,7 +61226,7 @@ export interface AttributeType_154671S {
     criteriaSetType: string
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU5
+    criteriaDetails: Array<AttributeInformationTypeU5>
     
 }
 
@@ -61289,7 +61289,7 @@ export interface CodedAttributeType_190204S {
     $attributes: CodedAttributeType_190204SAttributes
     
     // used to describe one processing option at FOP level
-    attributeDetails: CodedAttributeInformationType_266039C
+    attributeDetails: Array<CodedAttributeInformationType_266039C>
     
 }
 
@@ -61638,7 +61638,7 @@ export interface QuantityType1 {
     $attributes: QuantityType1Attributes
     
     // To specify an appropriate quantity.
-    quantityDetails: QuantityDetailsTypeI3
+    quantityDetails: Array<QuantityDetailsTypeI3>
     
 }
 
@@ -61712,7 +61712,7 @@ export interface FreeTextInformationType_154703S {
     freeTextDetails: FreeTextDetailsType8
     
     // Free text describing the color
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -62130,7 +62130,7 @@ export interface StatusType6 {
     $attributes: StatusType6Attributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsType5
+    statusInformation: Array<StatusDetailsType5>
     
 }
 
@@ -62394,7 +62394,7 @@ export interface CodedAttributeType8 {
     attributeFunction: string
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType9
+    attributeDetails: Array<CodedAttributeInformationType9>
     
 }
 
@@ -62727,7 +62727,7 @@ export interface StatusType_68646S {
     $attributes: StatusType_68646SAttributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsTypeI4
+    statusInformation: Array<StatusDetailsTypeI4>
     
     
     DummyNET: string
@@ -62832,7 +62832,7 @@ export interface AttributeType7 {
     criteriaSetType: Array<string>
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU5
+    criteriaDetails: Array<AttributeInformationTypeU5>
     
 }
 
@@ -63079,7 +63079,7 @@ export interface StatusType_141910S {
     $attributes: StatusType_141910SAttributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsType_205625C
+    statusInformation: Array<StatusDetailsType_205625C>
     
 }
 
@@ -63527,7 +63527,7 @@ export interface FreeTextInformationType8 {
     freeTextDetails: FreeTextDetailsType_220880C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -63576,7 +63576,7 @@ export interface FareComponentDetailsType {
     fareComponentId: ReferenceInfoType9
     
     // Conveys data about the coupon.
-    couponStatus: CouponInformationType
+    couponStatus: Array<CouponInformationType>
     
     // Element used to convey fare component monetary information
     monetaryInformation: Array<MonetaryInformationType_192195S>
@@ -63884,7 +63884,7 @@ export interface ProductTypeDetailsType7 {
     $attributes: ProductTypeDetailsType7Attributes
     
     // indicates whether the flight is domestic or international
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -64866,7 +64866,7 @@ export interface AttributeType_154711S {
     $attributes: AttributeType_154711SAttributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU_107107C
+    criteriaDetails: Array<AttributeInformationTypeU_107107C>
     
 }
 
@@ -65356,7 +65356,7 @@ export interface FreeTextInformationType_154694S {
     freeTextDetails: FreeTextDetailsType_220902C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -66262,7 +66262,7 @@ export interface FreeTextInformationType_154703S1 {
     freeTextDetails: FreeTextDetailsType9
     
     // Free text describing the color
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -66453,7 +66453,7 @@ export interface AttributeType_154671S1 {
     criteriaSetType: string
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU6
+    criteriaDetails: Array<AttributeInformationTypeU6>
     
 }
 
@@ -66567,7 +66567,7 @@ export interface CodedAttributeType_190204S1 {
     $attributes: CodedAttributeType_190204S1Attributes
     
     // used to describe one processing option at FOP level
-    attributeDetails: CodedAttributeInformationType_266039C1
+    attributeDetails: Array<CodedAttributeInformationType_266039C1>
     
 }
 
@@ -66916,7 +66916,7 @@ export interface QuantityType2 {
     $attributes: QuantityType2Attributes
     
     // To specify an appropriate quantity.
-    quantityDetails: QuantityDetailsTypeI4
+    quantityDetails: Array<QuantityDetailsTypeI4>
     
 }
 
@@ -67391,7 +67391,7 @@ export interface StatusType7 {
     $attributes: StatusType7Attributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsType6
+    statusInformation: Array<StatusDetailsType6>
     
 }
 
@@ -67604,7 +67604,7 @@ export interface CodedAttributeType9 {
     attributeFunction: string
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType_220870C
+    attributeDetails: Array<CodedAttributeInformationType_220870C>
     
 }
 
@@ -67937,7 +67937,7 @@ export interface StatusType_68646S1 {
     $attributes: StatusType_68646S1Attributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsTypeI5
+    statusInformation: Array<StatusDetailsTypeI5>
     
     
     DummyNET: string
@@ -68042,7 +68042,7 @@ export interface AttributeType8 {
     criteriaSetType: Array<string>
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU6
+    criteriaDetails: Array<AttributeInformationTypeU6>
     
 }
 
@@ -68289,7 +68289,7 @@ export interface StatusType_141910S1 {
     $attributes: StatusType_141910S1Attributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsType_205625C1
+    statusInformation: Array<StatusDetailsType_205625C1>
     
 }
 
@@ -68766,7 +68766,7 @@ export interface FreeTextInformationType9 {
     freeTextDetails: FreeTextDetailsType_220880C1
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -68815,7 +68815,7 @@ export interface FareComponentDetailsType1 {
     fareComponentId: ReferenceInfoType10
     
     // Conveys data about the coupon.
-    couponStatus: CouponInformationType1
+    couponStatus: Array<CouponInformationType1>
     
     // Element used to convey fare component monetary information
     monetaryInformation: Array<MonetaryInformationType_192195S1>
@@ -69123,7 +69123,7 @@ export interface ProductTypeDetailsType8 {
     $attributes: ProductTypeDetailsType8Attributes
     
     // indicates whether the flight is domestic or international
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -70105,7 +70105,7 @@ export interface AttributeType_154711S1 {
     $attributes: AttributeType_154711S1Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU_107107C1
+    criteriaDetails: Array<AttributeInformationTypeU_107107C1>
     
 }
 
@@ -70595,7 +70595,7 @@ export interface FreeTextInformationType_154694S1 {
     freeTextDetails: FreeTextDetailsType_220902C1
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -71343,7 +71343,7 @@ export interface CodedAttributeType10 {
     $attributes: CodedAttributeType10Attributes
     
     
-    attributeDetails: CodedAttributeInformationType11
+    attributeDetails: Array<CodedAttributeInformationType11>
     
 }
 
@@ -71575,7 +71575,7 @@ export interface FreeTextInformationType10 {
     freeTextDetails: FreeTextDetailsType10
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -71647,7 +71647,7 @@ export interface ItemNumberType5 {
     $attributes: ItemNumberType5Attributes
     
     
-    itemNumberDetails: ItemNumberIdentificationType5
+    itemNumberDetails: Array<ItemNumberIdentificationType5>
     
 }
 
@@ -71706,7 +71706,7 @@ export interface CodedAttributeType11 {
     $attributes: CodedAttributeType11Attributes
     
     
-    attributeDetails: CodedAttributeInformationType12
+    attributeDetails: Array<CodedAttributeInformationType12>
     
 }
 
@@ -71785,7 +71785,7 @@ export interface FreeTextInformationType_198124S {
     freeTextDetails: FreeTextDetailsType_275914C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -72007,10 +72007,10 @@ export interface Fare_InformativeBestPricingWithoutPNRType {
     originatorGroup: Array<OriginatorGroupType>
     
     // Passenger description
-    passengersGroup: PassengersGroupType
+    passengersGroup: Array<PassengersGroupType>
     
     // Itinerary description and pricing information related at flight level.
-    segmentGroup: SegmentGroupType
+    segmentGroup: Array<SegmentGroupType>
     
     
     pricingOptionGroup: Array<PricingOptionGroupType>
@@ -72366,7 +72366,7 @@ export interface ProductTypeDetailsTypeI6 {
     $attributes: ProductTypeDetailsTypeI6Attributes
     
     
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -72506,7 +72506,7 @@ export interface AttributeType9 {
     $attributes: AttributeType9Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU7
+    criteriaDetails: Array<AttributeInformationTypeU7>
     
 }
 
@@ -72770,7 +72770,7 @@ export interface FrequentTravellerIdentificationCodeType8 {
     $attributes: FrequentTravellerIdentificationCodeType8Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType7
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType7>
     
 }
 
@@ -73079,7 +73079,7 @@ export interface FreeTextInformationType11 {
     freeTextDetails: Array<FreeTextDetailsType11>
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -73134,7 +73134,7 @@ export interface MainGroupType {
     generalIndicatorsGroup: Array<GeneralIndicatorsGroupType>
     
     
-    pricingGroupLevelGroup: PricingGroupLevelGroupType
+    pricingGroupLevelGroup: Array<PricingGroupLevelGroupType>
     
 }
 
@@ -74148,7 +74148,7 @@ export interface ProductTypeDetailsTypeI7 {
     $attributes: ProductTypeDetailsTypeI7Attributes
     
     
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -74550,7 +74550,7 @@ export interface ItemNumberTypeI {
     $attributes: ItemNumberTypeIAttributes
     
     
-    itemNumberDetails: ItemNumberIdentificationTypeI
+    itemNumberDetails: Array<ItemNumberIdentificationTypeI>
     
 }
 
@@ -74827,7 +74827,7 @@ export interface FareComponentDetailsType1 {
     fareFamilyOwner: Array<TransportIdentifierType6>
     
     // Used to specify coupons included in the fare component or in the bound.
-    couponDetailsGroup: CouponDetailsType1
+    couponDetailsGroup: Array<CouponDetailsType1>
     
 }
 
@@ -74841,7 +74841,7 @@ export interface ItemNumberType6 {
     $attributes: ItemNumberType6Attributes
     
     // Item identification: number of the fare component or of the bound.
-    itemNumberDetails: ItemNumberIdentificationType6
+    itemNumberDetails: Array<ItemNumberIdentificationType6>
     
 }
 
@@ -75146,10 +75146,10 @@ export interface Fare_InformativePricingWithoutPNRType {
     originatorGroup: Array<OriginatorGroupType1>
     
     // Passengers description
-    passengersGroup: PassengersGroupType1
+    passengersGroup: Array<PassengersGroupType1>
     
     // Itinerary description and pricing information related at flight level.
-    segmentGroup: SegmentGroupType1
+    segmentGroup: Array<SegmentGroupType1>
     
     
     pricingOptionGroup: Array<PricingOptionGroupType1>
@@ -75502,7 +75502,7 @@ export interface ProductTypeDetailsTypeI8 {
     $attributes: ProductTypeDetailsTypeI8Attributes
     
     
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -75642,7 +75642,7 @@ export interface AttributeType10 {
     $attributes: AttributeType10Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU8
+    criteriaDetails: Array<AttributeInformationTypeU8>
     
 }
 
@@ -75906,7 +75906,7 @@ export interface FrequentTravellerIdentificationCodeType9 {
     $attributes: FrequentTravellerIdentificationCodeType9Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType8
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType8>
     
 }
 
@@ -76215,7 +76215,7 @@ export interface FreeTextInformationType12 {
     freeTextDetails: FreeTextDetailsType12
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -76270,7 +76270,7 @@ export interface MainGroupType1 {
     generalIndicatorsGroup: Array<GeneralIndicatorsGroupType1>
     
     
-    pricingGroupLevelGroup: PricingGroupLevelGroupType1
+    pricingGroupLevelGroup: Array<PricingGroupLevelGroupType1>
     
 }
 
@@ -77246,7 +77246,7 @@ export interface ProductTypeDetailsTypeI9 {
     $attributes: ProductTypeDetailsTypeI9Attributes
     
     
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -77648,7 +77648,7 @@ export interface ItemNumberTypeI1 {
     $attributes: ItemNumberTypeI1Attributes
     
     
-    itemNumberDetails: ItemNumberIdentificationTypeI1
+    itemNumberDetails: Array<ItemNumberIdentificationTypeI1>
     
 }
 
@@ -77925,7 +77925,7 @@ export interface FareComponentDetailsType2 {
     fareFamilyOwner: Array<TransportIdentifierType8>
     
     // Used to specify coupons included in the fare component or in the bound.
-    couponDetailsGroup: CouponDetailsType2
+    couponDetailsGroup: Array<CouponDetailsType2>
     
 }
 
@@ -77939,7 +77939,7 @@ export interface ItemNumberType7 {
     $attributes: ItemNumberType7Attributes
     
     // Item identification: number of the fare component or of the bound.
-    itemNumberDetails: ItemNumberIdentificationType7
+    itemNumberDetails: Array<ItemNumberIdentificationType7>
     
 }
 
@@ -78443,7 +78443,7 @@ export interface CitypairType {
     originDestinationMarker: OriginAndDestinationDetailsTypeI5
     
     
-    travellerInformationSection: TravellerInformationSectionType
+    travellerInformationSection: Array<TravellerInformationSectionType>
     
 }
 
@@ -78768,7 +78768,7 @@ export interface Fare_PricePNRWithBookingClassType {
     $attributes: Fare_PricePNRWithBookingClassTypeAttributes
     
     
-    pricingOptionGroup: PricingOptionGroupType2
+    pricingOptionGroup: Array<PricingOptionGroupType2>
     
 }
 
@@ -78843,7 +78843,7 @@ export interface AttributeType11 {
     $attributes: AttributeType11Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU9
+    criteriaDetails: Array<AttributeInformationTypeU9>
     
 }
 
@@ -79107,7 +79107,7 @@ export interface FrequentTravellerIdentificationCodeType10 {
     $attributes: FrequentTravellerIdentificationCodeType10Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType9
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType9>
     
 }
 
@@ -79334,7 +79334,7 @@ export interface FreeTextInformationType13 {
     freeTextDetails: Array<FreeTextDetailsType13>
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -79914,7 +79914,7 @@ export interface OriginAndDestinationDetailsTypeI6 {
     $attributes: OriginAndDestinationDetailsTypeI6Attributes
     
     // Code of the city.
-    cityCode: string
+    cityCode: Array<string>
     
 }
 
@@ -80273,7 +80273,7 @@ export interface CodedAttributeType_39223S {
     $attributes: CodedAttributeType_39223SAttributes
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType_66047C
+    attributeDetails: Array<CodedAttributeInformationType_66047C>
     
     
     DummyNET: string
@@ -80603,7 +80603,7 @@ export interface CodedAttributeType12 {
     $attributes: CodedAttributeType12Attributes
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType13
+    attributeDetails: Array<CodedAttributeInformationType13>
     
 }
 
@@ -80634,7 +80634,7 @@ export interface CorporateFareInformationType2 {
     $attributes: CorporateFareInformationType2Attributes
     
     
-    corporateFareIdentifiers: CorporateFareIdentifiersTypeI
+    corporateFareIdentifiers: Array<CorporateFareIdentifiersTypeI>
     
 }
 
@@ -80809,7 +80809,7 @@ export interface MonetaryInformationTypeI_39230S {
     $attributes: MonetaryInformationTypeI_39230SAttributes
     
     // Monetary info
-    monetaryDetails: MonetaryInformationDetailsTypeI_63727C
+    monetaryDetails: Array<MonetaryInformationDetailsTypeI_63727C>
     
 }
 
@@ -80938,7 +80938,7 @@ export interface FareComponentDetailsType3 {
     fareFamilyOwner: Array<TransportIdentifierType_156079S>
     
     // Used to specify coupons included in the fare component or in the bound.
-    couponDetailsGroup: CouponDetailsType3
+    couponDetailsGroup: Array<CouponDetailsType3>
     
 }
 
@@ -80952,7 +80952,7 @@ export interface ItemNumberType8 {
     $attributes: ItemNumberType8Attributes
     
     // Item identification: number of the fare component or of the bound.
-    itemNumberDetails: ItemNumberIdentificationType8
+    itemNumberDetails: Array<ItemNumberIdentificationType8>
     
 }
 
@@ -81410,7 +81410,7 @@ export interface Service_IntegratedCatalogueType {
     $attributes: Service_IntegratedCatalogueTypeAttributes
     
     // Pricing Options Group
-    pricingOption: PricingOptionType
+    pricingOption: Array<PricingOptionType>
     
 }
 
@@ -81482,7 +81482,7 @@ export interface AttributeType12 {
     $attributes: AttributeType12Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU10
+    criteriaDetails: Array<AttributeInformationTypeU10>
     
 }
 
@@ -81609,7 +81609,7 @@ export interface FrequentTravellerIdentificationCodeType11 {
     $attributes: FrequentTravellerIdentificationCodeType11Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType10
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType10>
     
 }
 
@@ -81922,7 +81922,7 @@ export interface FreeTextInformationType14 {
     freeTextDetails: FreeTextDetailsType14
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -82376,7 +82376,7 @@ export interface ProductTypeDetailsType12 {
     $attributes: ProductTypeDetailsType12Attributes
     
     // Booking access identifier
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -82407,7 +82407,7 @@ export interface ProductTypeDetailsType_254225C {
     $attributes: ProductTypeDetailsType_254225CAttributes
     
     // Flight indicator
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -82692,7 +82692,7 @@ export interface StatusType8 {
     $attributes: StatusType8Attributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsType7
+    statusInformation: Array<StatusDetailsType7>
     
 }
 
@@ -82865,7 +82865,7 @@ export interface ItemNumberType9 {
     $attributes: ItemNumberType9Attributes
     
     // Item number details
-    itemNumberDetails: ItemNumberIdentificationType9
+    itemNumberDetails: Array<ItemNumberIdentificationType9>
     
 }
 
@@ -83022,7 +83022,7 @@ export interface AttributeType13 {
     criteriaSetType: Array<string>
     
     // Criteria details
-    criteriaDetails: AttributeInformationType4
+    criteriaDetails: Array<AttributeInformationType4>
     
 }
 
@@ -83073,7 +83073,7 @@ export interface CodedAttributeType13 {
     attributeFunction: Array<string>
     
     
-    attributeDetails: CodedAttributeInformationType14
+    attributeDetails: Array<CodedAttributeInformationType14>
     
 }
 
@@ -83342,7 +83342,7 @@ export interface NumberOfUnitsType3 {
     $attributes: NumberOfUnitsType3Attributes
     
     // Quantity details
-    quantityDetails: NumberOfUnitDetailsType6
+    quantityDetails: Array<NumberOfUnitDetailsType6>
     
 }
 
@@ -83943,7 +83943,7 @@ export interface Service_IntegratedPricingType {
     $attributes: Service_IntegratedPricingTypeAttributes
     
     // Pricing Options Group
-    pricingOption: PricingOptionGroup
+    pricingOption: Array<PricingOptionGroup>
     
 }
 
@@ -84012,7 +84012,7 @@ export interface AttributeType14 {
     $attributes: AttributeType14Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU11
+    criteriaDetails: Array<AttributeInformationTypeU11>
     
 }
 
@@ -84139,7 +84139,7 @@ export interface FrequentTravellerIdentificationCodeType13 {
     $attributes: FrequentTravellerIdentificationCodeType13Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType12
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType12>
     
 }
 
@@ -84448,7 +84448,7 @@ export interface FreeTextInformationType15 {
     freeTextDetails: FreeTextDetailsType15
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -84549,7 +84549,7 @@ export interface StatusType9 {
     $attributes: StatusType9Attributes
     
     // Status details
-    statusDetails: StatusDetailsType8
+    statusDetails: Array<StatusDetailsType8>
     
 }
 
@@ -84577,7 +84577,7 @@ export interface ItemNumberType10 {
     $attributes: ItemNumberType10Attributes
     
     // Item number details
-    itemNumberDetails: ItemNumberIdentificationType10
+    itemNumberDetails: Array<ItemNumberIdentificationType10>
     
 }
 
@@ -84608,7 +84608,7 @@ export interface ConversionRateType3 {
     $attributes: ConversionRateType3Attributes
     
     // Conversion rate details
-    conversionRateDetails: ConversionRateDetailsType3
+    conversionRateDetails: Array<ConversionRateDetailsType3>
     
 }
 
@@ -84639,7 +84639,7 @@ export interface MonetaryInformationType16 {
     $attributes: MonetaryInformationType16Attributes
     
     // Monetary details
-    monetaryDetails: MonetaryInformationDetailsType_231248C
+    monetaryDetails: Array<MonetaryInformationDetailsType_231248C>
     
 }
 
@@ -84730,7 +84730,7 @@ export interface MonetaryInformationType_163167S {
     $attributes: MonetaryInformationType_163167SAttributes
     
     // Monetary details
-    monetaryDetails: MonetaryInformationDetailsType_231249C
+    monetaryDetails: Array<MonetaryInformationDetailsType_231249C>
     
     
     DummyNET: string
@@ -84952,7 +84952,7 @@ export interface ProductTypeDetailsType13 {
     $attributes: ProductTypeDetailsType13Attributes
     
     // Booking access identifier
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -85280,7 +85280,7 @@ export interface AttributeType15 {
     $attributes: AttributeType15Attributes
     
     // Criteria details
-    attributeDetails: AttributeInformationType5
+    attributeDetails: Array<AttributeInformationType5>
     
 }
 
@@ -85510,7 +85510,7 @@ export interface NumberOfUnitsType4 {
     $attributes: NumberOfUnitsType4Attributes
     
     // Quantity details
-    quantityDetails: NumberOfUnitDetailsType7
+    quantityDetails: Array<NumberOfUnitDetailsType7>
     
 }
 
@@ -85558,7 +85558,7 @@ export interface ConversionRateType_163191S {
     $attributes: ConversionRateType_163191SAttributes
     
     // Conversion rate details
-    conversionRateDetails: ConversionRateDetailsTypeI6
+    conversionRateDetails: Array<ConversionRateDetailsTypeI6>
     
 }
 
@@ -85742,7 +85742,7 @@ export interface ItemNumberType_163213S {
     $attributes: ItemNumberType_163213SAttributes
     
     // Item number details
-    itemNumberDetails: ItemNumberIdentificationType_231296C
+    itemNumberDetails: Array<ItemNumberIdentificationType_231296C>
     
 }
 
@@ -85930,7 +85930,7 @@ export interface MonetaryInformationType_67627S {
     $attributes: MonetaryInformationType_67627SAttributes
     
     // Monetary details
-    monetaryDetails: MonetaryInformationDetailsType14
+    monetaryDetails: Array<MonetaryInformationDetailsType14>
     
 }
 
@@ -86071,7 +86071,7 @@ export interface NumberOfUnitsType_163220S {
     $attributes: NumberOfUnitsType_163220SAttributes
     
     // Quantity details
-    quantityDetails: NumberOfUnitDetailsType_231306C
+    quantityDetails: Array<NumberOfUnitDetailsType_231306C>
     
 }
 
@@ -86235,7 +86235,7 @@ export interface ConversionRateType_163222S {
     $attributes: ConversionRateType_163222SAttributes
     
     // Conversion rate details
-    conversionRateDetails: ConversionRateDetailsTypeI_231308C
+    conversionRateDetails: Array<ConversionRateDetailsTypeI_231308C>
     
 }
 
@@ -86366,7 +86366,7 @@ export interface AttributeType_67628S {
     attributeQualifier: Array<string>
     
     // Criteria details
-    attributeDetails: AttributeInformationType5
+    attributeDetails: Array<AttributeInformationType5>
     
 }
 
@@ -86630,7 +86630,7 @@ export interface Fare_PricePNRWithLowerFaresType {
     $attributes: Fare_PricePNRWithLowerFaresTypeAttributes
     
     
-    pricingOptionGroup: PricingOptionGroupType3
+    pricingOptionGroup: Array<PricingOptionGroupType3>
     
 }
 
@@ -86705,7 +86705,7 @@ export interface AttributeType16 {
     $attributes: AttributeType16Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU12
+    criteriaDetails: Array<AttributeInformationTypeU12>
     
 }
 
@@ -86969,7 +86969,7 @@ export interface FrequentTravellerIdentificationCodeType14 {
     $attributes: FrequentTravellerIdentificationCodeType14Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType13
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType13>
     
 }
 
@@ -87196,7 +87196,7 @@ export interface FreeTextInformationType16 {
     freeTextDetails: Array<FreeTextDetailsType16>
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -87776,7 +87776,7 @@ export interface OriginAndDestinationDetailsTypeI7 {
     $attributes: OriginAndDestinationDetailsTypeI7Attributes
     
     // Code of the city.
-    cityCode: string
+    cityCode: Array<string>
     
 }
 
@@ -88135,7 +88135,7 @@ export interface CodedAttributeType14 {
     $attributes: CodedAttributeType14Attributes
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType15
+    attributeDetails: Array<CodedAttributeInformationType15>
     
     
     DummyNET: string
@@ -88465,7 +88465,7 @@ export interface CodedAttributeType_39319S {
     $attributes: CodedAttributeType_39319SAttributes
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType_66172C
+    attributeDetails: Array<CodedAttributeInformationType_66172C>
     
 }
 
@@ -88496,7 +88496,7 @@ export interface CorporateFareInformationType4 {
     $attributes: CorporateFareInformationType4Attributes
     
     
-    corporateFareIdentifiers: CorporateFareIdentifiersTypeI1
+    corporateFareIdentifiers: Array<CorporateFareIdentifiersTypeI1>
     
 }
 
@@ -88671,7 +88671,7 @@ export interface MonetaryInformationTypeI_39230S1 {
     $attributes: MonetaryInformationTypeI_39230S1Attributes
     
     // Monetary info
-    monetaryDetails: MonetaryInformationDetailsTypeI_63727C1
+    monetaryDetails: Array<MonetaryInformationDetailsTypeI_63727C1>
     
 }
 
@@ -88800,7 +88800,7 @@ export interface FareComponentDetailsType5 {
     fareFamilyOwner: Array<TransportIdentifierType14>
     
     // Used to specify coupons included in the fare component or in the bound.
-    couponDetailsGroup: CouponDetailsType4
+    couponDetailsGroup: Array<CouponDetailsType4>
     
 }
 
@@ -88814,7 +88814,7 @@ export interface ItemNumberType11 {
     $attributes: ItemNumberType11Attributes
     
     // Item identification: number of the fare component or of the bound.
-    itemNumberDetails: ItemNumberIdentificationType11
+    itemNumberDetails: Array<ItemNumberIdentificationType11>
     
 }
 
@@ -89272,7 +89272,7 @@ export interface Fare_PricePNRWithLowestFareType {
     $attributes: Fare_PricePNRWithLowestFareTypeAttributes
     
     
-    pricingOptionGroup: PricingOptionGroupType4
+    pricingOptionGroup: Array<PricingOptionGroupType4>
     
 }
 
@@ -89347,7 +89347,7 @@ export interface AttributeType17 {
     $attributes: AttributeType17Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU13
+    criteriaDetails: Array<AttributeInformationTypeU13>
     
 }
 
@@ -89611,7 +89611,7 @@ export interface FrequentTravellerIdentificationCodeType15 {
     $attributes: FrequentTravellerIdentificationCodeType15Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType14
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType14>
     
 }
 
@@ -89838,7 +89838,7 @@ export interface FreeTextInformationType17 {
     freeTextDetails: Array<FreeTextDetailsType17>
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -90418,7 +90418,7 @@ export interface OriginAndDestinationDetailsTypeI8 {
     $attributes: OriginAndDestinationDetailsTypeI8Attributes
     
     // Code of the city.
-    cityCode: string
+    cityCode: Array<string>
     
 }
 
@@ -90797,7 +90797,7 @@ export interface CodedAttributeType15 {
     $attributes: CodedAttributeType15Attributes
     
     // provides details for the Attribute
-    attributeDetails: CodedAttributeInformationType16
+    attributeDetails: Array<CodedAttributeInformationType16>
     
     
     DummyNET: string
@@ -91124,7 +91124,7 @@ export interface CorporateFareInformationType5 {
     $attributes: CorporateFareInformationType5Attributes
     
     
-    corporateFareIdentifiers: CorporateFareIdentifiersTypeI2
+    corporateFareIdentifiers: Array<CorporateFareIdentifiersTypeI2>
     
 }
 
@@ -91299,7 +91299,7 @@ export interface MonetaryInformationTypeI_39230S2 {
     $attributes: MonetaryInformationTypeI_39230S2Attributes
     
     // Monetary info
-    monetaryDetails: MonetaryInformationDetailsTypeI_63727C2
+    monetaryDetails: Array<MonetaryInformationDetailsTypeI_63727C2>
     
 }
 
@@ -91428,7 +91428,7 @@ export interface FareComponentDetailsType6 {
     fareFamilyOwner: Array<TransportIdentifierType16>
     
     // Used to specify coupons included in the fare component or in the bound.
-    couponDetailsGroup: CouponDetailsType5
+    couponDetailsGroup: Array<CouponDetailsType5>
     
 }
 
@@ -91442,7 +91442,7 @@ export interface ItemNumberType12 {
     $attributes: ItemNumberType12Attributes
     
     // Item identification: number of the fare component or of the bound.
-    itemNumberDetails: ItemNumberIdentificationType12
+    itemNumberDetails: Array<ItemNumberIdentificationType12>
     
 }
 
@@ -91900,7 +91900,7 @@ export interface Service_StandaloneCatalogueType {
     $attributes: Service_StandaloneCatalogueTypeAttributes
     
     // passengers list
-    passengerInfoGroup: PassengerInfoType
+    passengerInfoGroup: Array<PassengerInfoType>
     
     
     flightInfo: Array<FlightInfoType2>
@@ -92151,7 +92151,7 @@ export interface ProductTypeDetailsType_219501C {
     $attributes: ProductTypeDetailsType_219501CAttributes
     
     // Booking access identifier
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -92182,7 +92182,7 @@ export interface ProductTypeDetailsType16 {
     $attributes: ProductTypeDetailsType16Attributes
     
     // Flight indicator
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -92393,7 +92393,7 @@ export interface AttributeType18 {
     $attributes: AttributeType18Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU14
+    criteriaDetails: Array<AttributeInformationTypeU14>
     
 }
 
@@ -92520,7 +92520,7 @@ export interface FrequentTravellerIdentificationCodeType16 {
     $attributes: FrequentTravellerIdentificationCodeType16Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType15
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType15>
     
 }
 
@@ -92805,7 +92805,7 @@ export interface FreeTextInformationType18 {
     freeTextDetails: FreeTextDetailsType18
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -93259,7 +93259,7 @@ export interface ProductTypeDetailsType17 {
     $attributes: ProductTypeDetailsType17Attributes
     
     // Booking access identifier
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -93290,7 +93290,7 @@ export interface ProductTypeDetailsType_254225C1 {
     $attributes: ProductTypeDetailsType_254225C1Attributes
     
     // Flight indicator
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -93575,7 +93575,7 @@ export interface StatusType10 {
     $attributes: StatusType10Attributes
     
     // STATUS DETAILS
-    statusInformation: StatusDetailsType9
+    statusInformation: Array<StatusDetailsType9>
     
 }
 
@@ -93748,7 +93748,7 @@ export interface ItemNumberType13 {
     $attributes: ItemNumberType13Attributes
     
     // Item number details
-    itemNumberDetails: ItemNumberIdentificationType13
+    itemNumberDetails: Array<ItemNumberIdentificationType13>
     
 }
 
@@ -93905,7 +93905,7 @@ export interface AttributeType19 {
     criteriaSetType: Array<string>
     
     // Criteria details
-    criteriaDetails: AttributeInformationType6
+    criteriaDetails: Array<AttributeInformationType6>
     
 }
 
@@ -93956,7 +93956,7 @@ export interface CodedAttributeType16 {
     attributeFunction: Array<string>
     
     
-    attributeDetails: CodedAttributeInformationType17
+    attributeDetails: Array<CodedAttributeInformationType17>
     
 }
 
@@ -94225,7 +94225,7 @@ export interface NumberOfUnitsType5 {
     $attributes: NumberOfUnitsType5Attributes
     
     // Quantity details
-    quantityDetails: NumberOfUnitDetailsType8
+    quantityDetails: Array<NumberOfUnitDetailsType8>
     
 }
 
@@ -94826,7 +94826,7 @@ export interface Service_StandalonePricingType {
     $attributes: Service_StandalonePricingTypeAttributes
     
     // passengers list
-    passengerInfoGroup: PassengerInfoType1
+    passengerInfoGroup: Array<PassengerInfoType1>
     
     // flight information
     flightInforGroup: Array<FlightInforGroupType>
@@ -95086,7 +95086,7 @@ export interface ProductTypeDetailsTypeI11 {
     $attributes: ProductTypeDetailsTypeI11Attributes
     
     
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -95404,7 +95404,7 @@ export interface QuantityType3 {
     $attributes: QuantityType3Attributes
     
     // Quantity details
-    quantityDetails: QuantityDetailsTypeI7
+    quantityDetails: Array<QuantityDetailsTypeI7>
     
 }
 
@@ -95524,7 +95524,7 @@ export interface AttributeType20 {
     $attributes: AttributeType20Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU15
+    criteriaDetails: Array<AttributeInformationTypeU15>
     
 }
 
@@ -95651,7 +95651,7 @@ export interface FrequentTravellerIdentificationCodeType18 {
     $attributes: FrequentTravellerIdentificationCodeType18Attributes
     
     // Frequent Traveller Info
-    frequentTravellerDetails: FrequentTravellerIdentificationType17
+    frequentTravellerDetails: Array<FrequentTravellerIdentificationType17>
     
 }
 
@@ -95960,7 +95960,7 @@ export interface FreeTextInformationType19 {
     freeTextDetails: FreeTextDetailsType19
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -96061,7 +96061,7 @@ export interface StatusType11 {
     $attributes: StatusType11Attributes
     
     // Status details
-    statusDetails: StatusDetailsType10
+    statusDetails: Array<StatusDetailsType10>
     
 }
 
@@ -96089,7 +96089,7 @@ export interface ItemNumberType14 {
     $attributes: ItemNumberType14Attributes
     
     // Item number details
-    itemNumberDetails: ItemNumberIdentificationType14
+    itemNumberDetails: Array<ItemNumberIdentificationType14>
     
 }
 
@@ -96120,7 +96120,7 @@ export interface ConversionRateType5 {
     $attributes: ConversionRateType5Attributes
     
     // Conversion rate details
-    conversionRateDetails: ConversionRateDetailsType5
+    conversionRateDetails: Array<ConversionRateDetailsType5>
     
 }
 
@@ -96151,7 +96151,7 @@ export interface MonetaryInformationType22 {
     $attributes: MonetaryInformationType22Attributes
     
     // Monetary details
-    monetaryDetails: MonetaryInformationDetailsType_231248C1
+    monetaryDetails: Array<MonetaryInformationDetailsType_231248C1>
     
 }
 
@@ -96242,7 +96242,7 @@ export interface MonetaryInformationType_163167S1 {
     $attributes: MonetaryInformationType_163167S1Attributes
     
     // Monetary details
-    monetaryDetails: MonetaryInformationDetailsType_231249C1
+    monetaryDetails: Array<MonetaryInformationDetailsType_231249C1>
     
     
     DummyNET: string
@@ -96464,7 +96464,7 @@ export interface ProductTypeDetailsType18 {
     $attributes: ProductTypeDetailsType18Attributes
     
     // Booking access identifier
-    flightIndicator: string
+    flightIndicator: Array<string>
     
 }
 
@@ -96792,7 +96792,7 @@ export interface AttributeType21 {
     $attributes: AttributeType21Attributes
     
     // Criteria details
-    attributeDetails: AttributeInformationType7
+    attributeDetails: Array<AttributeInformationType7>
     
 }
 
@@ -97022,7 +97022,7 @@ export interface NumberOfUnitsType6 {
     $attributes: NumberOfUnitsType6Attributes
     
     // Quantity details
-    quantityDetails: NumberOfUnitDetailsType9
+    quantityDetails: Array<NumberOfUnitDetailsType9>
     
 }
 
@@ -97070,7 +97070,7 @@ export interface ConversionRateType_163191S1 {
     $attributes: ConversionRateType_163191S1Attributes
     
     // Conversion rate details
-    conversionRateDetails: ConversionRateDetailsTypeI9
+    conversionRateDetails: Array<ConversionRateDetailsTypeI9>
     
 }
 
@@ -97254,7 +97254,7 @@ export interface ItemNumberType_163213S1 {
     $attributes: ItemNumberType_163213S1Attributes
     
     // Item number details
-    itemNumberDetails: ItemNumberIdentificationType_231296C1
+    itemNumberDetails: Array<ItemNumberIdentificationType_231296C1>
     
 }
 
@@ -97442,7 +97442,7 @@ export interface MonetaryInformationType_67627S1 {
     $attributes: MonetaryInformationType_67627S1Attributes
     
     // Monetary details
-    monetaryDetails: MonetaryInformationDetailsType20
+    monetaryDetails: Array<MonetaryInformationDetailsType20>
     
 }
 
@@ -97583,7 +97583,7 @@ export interface NumberOfUnitsType_163220S1 {
     $attributes: NumberOfUnitsType_163220S1Attributes
     
     // Quantity details
-    quantityDetails: NumberOfUnitDetailsType_231306C1
+    quantityDetails: Array<NumberOfUnitDetailsType_231306C1>
     
 }
 
@@ -97747,7 +97747,7 @@ export interface ConversionRateType_163222S1 {
     $attributes: ConversionRateType_163222S1Attributes
     
     // Conversion rate details
-    conversionRateDetails: ConversionRateDetailsTypeI_231308C1
+    conversionRateDetails: Array<ConversionRateDetailsTypeI_231308C1>
     
 }
 
@@ -97878,7 +97878,7 @@ export interface AttributeType_67628S1 {
     attributeQualifier: Array<string>
     
     // Criteria details
-    attributeDetails: AttributeInformationType7
+    attributeDetails: Array<AttributeInformationType7>
     
 }
 
@@ -98241,7 +98241,7 @@ export interface FreeTextInformationType20 {
     freeTextDetails: FreeTextDetailsType20
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -98323,7 +98323,7 @@ export interface TSMPdataType {
     location: Array<PlaceLocationIdentificationType16>
     
     // Coupons of the TSM-P
-    couponsDetails: CouponsDetailsType
+    couponsDetails: Array<CouponsDetailsType>
     
 }
 
@@ -99292,7 +99292,7 @@ export interface FreeTextInformationType21 {
     freeTextDetails: FreeTextDetailsType21
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -99662,7 +99662,7 @@ export interface ReasonCodeType {
     reasonCodes: AttributeType_21097S
     
     // reason for override: OTHER SODA RULE 85 INTERNET DING ADVERTISED FARE NOT LOADED US TAX ADJUSTMENT CUSTOMER CONVENIENCE EXTRA SEAT LOYALTY HONOR PROTECT FARE TWO HOUR RULE NAME MISMATCH NAME CHANGE DECEASED
-    reasonCodeComment: FreeTextInformationType_185885S
+    reasonCodeComment: Array<FreeTextInformationType_185885S>
     
 }
 
@@ -99707,7 +99707,7 @@ export interface FreeTextInformationType_185885S {
     freeTextDetails: FreeTextDetailsType_260638C
     
     // Free text and message sequence numbers of the remarks.
-    freeText: string
+    freeText: Array<string>
     
 }
 
@@ -99923,7 +99923,7 @@ export interface OriginAndDestinationDetailsTypeI9 {
     $attributes: OriginAndDestinationDetailsTypeI9Attributes
     
     // Code of the city.
-    cityCode: string
+    cityCode: Array<string>
     
 }
 
@@ -100253,7 +100253,7 @@ export interface CodedAttributeType19 {
     $attributes: CodedAttributeType19Attributes
     
     // provides details for the Attribute fare calculation or payment restriction or mileage breakdown freeflow.
-    attributeDetails: CodedAttributeInformationType20
+    attributeDetails: Array<CodedAttributeInformationType20>
     
     
     DummyNET: string
@@ -100846,7 +100846,7 @@ export interface TaxTypeI8 {
     taxCategory: Array<string>
     
     
-    feeTaxDetails: TaxDetailsTypeI10
+    feeTaxDetails: Array<TaxDetailsTypeI10>
     
 }
 
@@ -100866,7 +100866,7 @@ export interface TaxDetailsTypeI10 {
     currencyCode: Array<string>
     
     // Details applicable to the tax applied to the Carrier Fee. TX = Tax applies to fee
-    type: string
+    type: Array<string>
     
 }
 
@@ -100966,7 +100966,7 @@ export interface FareComponentDetailsGroupType {
     fareComponentServiceAttributes: Array<AttributeType23>
     
     // coupon Details Group
-    couponDetailsGroup: CouponDetailsGroupType1
+    couponDetailsGroup: Array<CouponDetailsGroupType1>
     
 }
 
@@ -100980,7 +100980,7 @@ export interface ItemNumberType15 {
     $attributes: ItemNumberType15Attributes
     
     
-    itemNumberDetails: ItemNumberIdentificationType15
+    itemNumberDetails: Array<ItemNumberIdentificationType15>
     
 }
 
@@ -101200,7 +101200,7 @@ export interface AttributeType23 {
     $attributes: AttributeType23Attributes
     
     // Details for the message criteria (name, value).
-    criteriaDetails: AttributeInformationTypeU17
+    criteriaDetails: Array<AttributeInformationTypeU17>
     
 }
 
@@ -101327,7 +101327,7 @@ export interface Security_AuthenticateType {
     conversationClt: Array<ConversationIDType>
     
     // This segment is dedicated to specify a user identifier. The first one for the main logon and the second one to the delegate user if any. Either a SignId or a UserId can be used, depending on DE 9972 value (Z for Sign Id, U for User Id). The value itself is specified in DE 9904.
-    userIdentifier: UserIdentificationType13
+    userIdentifier: Array<UserIdentificationType13>
     
     // This segment can be used to specify an AMADEUS Duty Code for the TPF sign in. DUT must be specified in the qualifier.
     dutyCode: Array<ReferenceInformationTypeI15>
