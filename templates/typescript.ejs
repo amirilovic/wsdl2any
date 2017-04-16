@@ -4,6 +4,7 @@ export interface <%= service.name %> {
 }
 <% service.types.forEach((t) => { %>
 <%= t.documentation ? '// ' + t.documentation : '' %>
+// <%= t.namespace %>
 export interface <%= t.globalName %><%= t.extends ? ' extends ' + t.extends : ''%> {
     
     $attributes: <%= t.globalName + 'Attributes' %>

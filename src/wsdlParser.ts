@@ -47,6 +47,7 @@ export interface ServiceDescription {
     name?: string
     contracts?: Array<ContractDescription>
     types?: Array<TypeDescription>
+    namespaces?: { [name: string]: string }
 }
 
 const WSDL_NS_URI = "http://schemas.xmlsoap.org/wsdl/";
@@ -57,11 +58,10 @@ export class WsdlParser {
     private filePath: string
     private doc: Document
     private select: xpath.XPathSelect
-    private typeRegistry: TypeRegistry
+    private namespaceMap: { [name: string]: string }
 
     constructor(wsdlPath: string) {
         this.filePath = wsdlPath;
-        this.typeRegistry = new TypeRegistry();
     }
 
     async init() {
@@ -81,16 +81,17 @@ export class WsdlParser {
     service(): ServiceDescription {
         let n = this.select('/wsdl:definitions/wsdl:service', this.doc, true) as Element;
         let sd: ServiceDescription = {
-            name: n.getAttribute("name")
+            name: n.getAttribute("name"),
+            namespaces: this.getNamespaces(this.doc)
         };
-
-        sd.contracts = this.contracts(sd.name);
-        sd.types = this.types();
-
+        let typeRegistry = new TypeRegistry(sd.namespaces);
+        this.processTypes(typeRegistry);
+        sd.contracts = this.contracts(sd.name, typeRegistry);
+        sd.types = typeRegistry.complexTypes();
         return sd;
     }
 
-    contracts(serviceName: string): Array<ContractDescription> {
+    private contracts(serviceName: string, typeRegistry: TypeRegistry): Array<ContractDescription> {
         let cds = new Array<ContractDescription>();
         let nodes = this.select(`/wsdl:definitions/wsdl:service[@name='${serviceName}']/wsdl:port`, this.doc);
 
@@ -103,37 +104,108 @@ export class WsdlParser {
             let cd: ContractDescription = {
                 name: portTypeName
             };
-            cd.operations = this.operations(cd.name);
+            cd.operations = this.operations(cd.name, bindingName, typeRegistry);
             cds.push(cd)
         });
 
         return cds;
     }
 
-    operations(contractName: string): Array<OperationDescription> {
+    private operations(contractName: string, bindingName: string, typeRegistry: TypeRegistry): Array<OperationDescription> {
         let ods = new Array<OperationDescription>();
         let nodes = this.select(`/wsdl:definitions/wsdl:portType[@name='${contractName}']/wsdl:operation`, this.doc);
 
         nodes.forEach((n: Element) => {
-            let opName = n.getAttribute("name")
-            let op: OperationDescription = {
-                name: opName
+            let operation: OperationDescription = {
+                name: n.getAttribute("name")
             };
-            let inputMessageName = (this.select(`/wsdl:definitions/wsdl:portType[@name='${contractName}']/wsdl:operation[@name='${op.name}']/wsdl:input/@message`, this.doc, true) as Node).nodeValue.split(':')[1];
-            let outputMessageName = (this.select(`/wsdl:definitions/wsdl:portType[@name='${contractName}']/wsdl:operation[@name='${op.name}']/wsdl:output/@message`, this.doc, true) as Node).nodeValue.split(':')[1];
 
-            op.input = (this.select(`/wsdl:definitions/wsdl:message[@name='${inputMessageName}']/wsdl:part/@element`, this.doc, true) as Element).nodeValue.split(':')[1];
-            op.output = (this.select(`/wsdl:definitions/wsdl:message[@name='${outputMessageName}']/wsdl:part/@element`, this.doc, true) as Element).nodeValue.split(':')[1];
+            let inputTypes = this.createOperationType(contractName, bindingName, operation.name, typeRegistry, 'input');
+            let outputTypes = this.createOperationType(contractName, bindingName, operation.name, typeRegistry, 'output');
 
-            ods.push(op);
+            operation.input = inputTypes[0].globalName;
+            operation.output = outputTypes[0].globalName;
+            ods.push(operation);
         });
 
         return ods;
     }
 
-    types(): Array<TypeDescription> {
+    private createOperationType(contractName: string, bindingName: string, operationName: string, typeRegistry: TypeRegistry, messageType: 'input' | 'output'): Array<TypeDescription> {
+        let types: Array<TypeDescription> = [];
+        let el = this.select(`/wsdl:definitions/wsdl:portType[@name='${contractName}']/wsdl:operation[@name='${operationName}']/wsdl:${messageType}`, this.doc, true) as Element;
+        let messageName = el.getAttribute('message').split(':')[1];
+        let [propertyName, itd] = this.getMessageType(messageName, typeRegistry);
+        let headers = (this.select(`/wsdl:definitions/wsdl:binding[@name='${bindingName}']/wsdl:operation[@name='${operationName}']/wsdl:${messageType}/soap:header`, this.doc));
+        let type: TypeDescription = {
+            name: operationName + (messageType == 'input' ? 'Request' : 'Response'),
+            namespace: this.findTargetNamespace(el),
+            complex: true,
+            properties: []
+        };
+
+        type.properties.push({
+            name: propertyName,
+            type: itd.globalName
+        });
+
+        let typeHeader: TypeDescription = {
+            name: type.name + 'Header',
+            namespace: this.findTargetNamespace(el),
+            complex: true,
+            properties: []
+        };
+
+        headers.forEach((h: Element) => {
+            let headerMessageName = h.getAttribute('message').split(':')[1];
+            let [propertyName, hdt] = this.getMessageType(headerMessageName, typeRegistry);
+            typeHeader.properties.push({
+                name: propertyName,
+                type: hdt.globalName
+            });
+        });
+
+        typeRegistry.add(typeHeader);
+
+        type.properties.push({
+            name: 'Header',
+            type: typeHeader.globalName
+        });
+        
+        typeRegistry.add(type);
+
+        types.push(type, typeHeader)
+
+        return types;
+    }
+
+    private getMessageType(name: string, typeRegistry: TypeRegistry): [string, TypeDescription] {
+        let el = this.select(`/wsdl:definitions/wsdl:message[@name='${name}']`, this.doc, true) as Element;
+        let bodyElName = (this.select(`/wsdl:definitions/wsdl:message[@name='${name}']/wsdl:part/@element`, this.doc, true) as Attr).value;
+        let [ns, t] = this.resolveSchemaType(el, bodyElName);
+        let bodyEl = this.getTypeEl(ns, t);
+        let td = this.processElement(bodyEl, null, null, typeRegistry);
+        return [t, td];
+    }
+
+
+
+    private getNamespaces(doc: Document): { [name: string]: string } {
+        let ns: { [name: string]: string } = {};
+
+        let attrs = Array.prototype.slice.call((this.select('/wsdl:definitions', doc, true) as Element).attributes);
+
+        attrs.forEach((a: Attr) => {
+            if (a.prefix == 'xmlns') {
+                ns[a.value] = a.localName;
+            }
+        });
+
+        return ns;
+    }
+
+    private processTypes(typeRegistry: TypeRegistry): Array<TypeDescription> {
         let schemaEls = this.select('/wsdl:definitions/wsdl:types/xs:schema', this.doc);
-        let typeRegistry = new TypeRegistry();
 
         console.log(`Schemas to process: ${schemaEls.length}`);
 
@@ -142,9 +214,6 @@ export class WsdlParser {
         let start = (new Date()).getTime();
 
         schemaEls.forEach((n) => {
-            // if (i == 5) {
-            //     return;
-            // }
             let sEl = n as Element;
             let start = (new Date()).getTime();
             console.log(`Processing schema #${i}. TargetNamespace=${sEl.getAttribute('targetNamespace')}...`);
@@ -432,7 +501,7 @@ export class WsdlParser {
             }
         });
 
-        if(!td) {
+        if (!td) {
             console.warn(`Could not resolve element: ${name} type.`);
             td = typeRegistry.lookup(XS_NS_URI, 'string');
         }
@@ -444,7 +513,7 @@ export class WsdlParser {
                 documentation: this.getElDocs(el),
                 array: this.isElArray(el)
             }
-        
+
             if (!pd.name) {
                 pd.name = pd.type + typeDescription.properties.length;
             }
@@ -623,11 +692,13 @@ class TypeRegistry {
     types: Array<TypeDescription>
     typesLookup: any
     typesGlobalCounter: any
+    ns: { [name: string]: string }
 
-    constructor() {
+    constructor(namespaces: { [name: string]: string }) {
         this.typesLookup = {};
         this.typesGlobalCounter = {};
         this.initDefaultTypes();
+        this.ns = namespaces;
     }
 
     add(type: TypeDescription) {
@@ -665,7 +736,7 @@ class TypeRegistry {
     }
 
     private formatGlobalName(name: string): string {
-        name = name[0].toUpperCase() + name.substring(1, name.length);
+
         return name;
     }
 
