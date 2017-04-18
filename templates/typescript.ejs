@@ -1,10 +1,32 @@
-export interface <%= service.name %> {
-    <% service.contracts.forEach((c) => { %><% c.operations.forEach((o) => { %>
-        <%= o.name %>(request: <%= o.input %>): <%= o.output %> <% }); %><% }) %>
+import * as soap from "soap";
+
+export class <%= service.name %> {
+    private wsdlUrl: string
+
+    constructor(wsdlUrl: string) {
+        this.wsdlUrl = wsdlUrl;
+    }
+    <% service.contract.operations.forEach((o) => { %>
+    public <%= o.name %>(request: <%= o.input %>): Promise<<%= o.output %>> {
+        return new Promise<<%= o.output%>>((resolve, reject) => {
+            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+                if(request.Headers) {
+                    client.addSoapHeader(request.Headers, null, null);
+                }
+                client["<%=o.name%>"](request.Body, (error, result, raw, soapHeaders) => {
+                    if(error) {
+                        reject(error);
+                        return;
+                    }
+                    let response = { Headers: soapHeaders, Body: result };
+                    resolve(response as <%= o.output %>);
+                });
+            });
+        });
+    }<% }) %>
 }
 <% service.types.forEach((t) => { %>
 <%= t.documentation ? '// ' + t.documentation : '' %>
-// <%= t.namespace %>
 export interface <%= t.globalName %><%= t.extends ? ' extends ' + t.extends : ''%> {
     
     $attributes: <%= t.globalName + 'Attributes' %>

@@ -3,10 +3,9 @@ import * as path from 'path'
 import * as ejs from 'ejs';
 import * as fs from 'fs';
 
-
-let wsdlFilePath = path.join(__dirname, '../amadeus.wsdl');
+let wsdlFilePath = path.join(__dirname, '../examples/amadeus.wsdl');
 let templateFilePath = path.join(__dirname, '../templates/typescript.ejs');
-let outputFilePath = path.join(__dirname, '../test/amadeus.ts');
+let outputFilePath = path.join(__dirname, '../examples/amadeus.ts');
 
 var parser = new WsdlParser(wsdlFilePath);
 
@@ -32,5 +31,3 @@ parser.init().then(() => {
 }).catch((err) => {
     console.error(err);
 });
-
-

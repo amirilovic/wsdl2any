@@ -1,9 +1,71 @@
-export interface WSDReiseAuskunftInterface {
+import * as soap from "soap";
+
+export class WSDReiseAuskunftInterface {
+    private wsdlUrl: string
+
+    constructor(wsdlUrl: string) {
+        this.wsdlUrl = wsdlUrl;
+    }
+
     
-        angebotssuche(request: AngebotssucheRequest): AngebotssucheResponse 
-        Angebotsdetails(request: AngebotsdetailsRequest): AngebotsdetailsResponse 
-        Ping(request: PingRequestRA): PingResponse 
-        Monitoring(request: MonitoringRequest): MonitoringResponse 
+    
+    public angebotssuche(request: angebotssucheOperationRequest): Promise<angebotssucheOperationResponse> {
+        return new Promise<angebotssucheOperationResponse>((resolve, reject) => {
+            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+                if(request.Headers) {
+                    client.addSoapHeader(request.Headers, null, null);
+                }
+                client["angebotssuche"](request, (error, result: angebotssucheOperationResponse, raw, soapHeaders) => {
+                    result.Headers = soapHeaders;
+                    resolve(result);
+                });
+            });
+        });
+    }
+    
+    public Angebotsdetails(request: AngebotsdetailsOperationRequest): Promise<AngebotsdetailsOperationResponse> {
+        return new Promise<AngebotsdetailsOperationResponse>((resolve, reject) => {
+            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+                if(request.Headers) {
+                    client.addSoapHeader(request.Headers, null, null);
+                }
+                client["Angebotsdetails"](request, (error, result: AngebotsdetailsOperationResponse, raw, soapHeaders) => {
+                    result.Headers = soapHeaders;
+                    resolve(result);
+                });
+            });
+        });
+    }
+    
+    public Ping(request: PingOperationRequest): Promise<PingOperationResponse> {
+        return new Promise<PingOperationResponse>((resolve, reject) => {
+            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+                if(request.Headers) {
+                    client.addSoapHeader(request.Headers, null, null);
+                }
+                client["Ping"](request, (error, result: PingOperationResponse, raw, soapHeaders) => {
+                    result.Headers = soapHeaders;
+                    resolve(result);
+                });
+            });
+        });
+    }
+    
+    public Monitoring(request: MonitoringOperationRequest): Promise<MonitoringOperationResponse> {
+        return new Promise<MonitoringOperationResponse>((resolve, reject) => {
+            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+                if(request.Headers) {
+                    client.addSoapHeader(request.Headers, null, null);
+                }
+                client["Monitoring"](request, (error, result: MonitoringOperationResponse, raw, soapHeaders) => {
+                    result.Headers = soapHeaders;
+                    resolve(result);
+                });
+            });
+        });
+    }
+    
+    
 }
 
 
@@ -922,5 +984,229 @@ export interface PingResponse {
 }
 
 export interface PingResponseAttributes {
+    
+}
+
+
+export interface angebotssucheOperationRequestOperationHeaders {
+    
+    $attributes: angebotssucheOperationRequestOperationHeadersAttributes
+    
+}
+
+export interface angebotssucheOperationRequestOperationHeadersAttributes {
+    
+}
+
+
+export interface angebotssucheOperationRequest {
+    
+    $attributes: angebotssucheOperationRequestAttributes
+    
+    
+    AngebotssucheRequest: AngebotssucheRequest
+    
+    
+    Headers: angebotssucheOperationRequestOperationHeaders
+    
+}
+
+export interface angebotssucheOperationRequestAttributes {
+    
+}
+
+
+export interface angebotssucheOperationResponseOperationHeaders {
+    
+    $attributes: angebotssucheOperationResponseOperationHeadersAttributes
+    
+}
+
+export interface angebotssucheOperationResponseOperationHeadersAttributes {
+    
+}
+
+
+export interface angebotssucheOperationResponse {
+    
+    $attributes: angebotssucheOperationResponseAttributes
+    
+    
+    AngebotssucheResponse: AngebotssucheResponse
+    
+    
+    Headers: angebotssucheOperationResponseOperationHeaders
+    
+}
+
+export interface angebotssucheOperationResponseAttributes {
+    
+}
+
+
+export interface AngebotsdetailsOperationRequestOperationHeaders {
+    
+    $attributes: AngebotsdetailsOperationRequestOperationHeadersAttributes
+    
+}
+
+export interface AngebotsdetailsOperationRequestOperationHeadersAttributes {
+    
+}
+
+
+export interface AngebotsdetailsOperationRequest {
+    
+    $attributes: AngebotsdetailsOperationRequestAttributes
+    
+    
+    AngebotsdetailsRequest: AngebotsdetailsRequest
+    
+    
+    Headers: AngebotsdetailsOperationRequestOperationHeaders
+    
+}
+
+export interface AngebotsdetailsOperationRequestAttributes {
+    
+}
+
+
+export interface AngebotsdetailsOperationResponseOperationHeaders {
+    
+    $attributes: AngebotsdetailsOperationResponseOperationHeadersAttributes
+    
+}
+
+export interface AngebotsdetailsOperationResponseOperationHeadersAttributes {
+    
+}
+
+
+export interface AngebotsdetailsOperationResponse {
+    
+    $attributes: AngebotsdetailsOperationResponseAttributes
+    
+    
+    AngebotsdetailsResponse: AngebotsdetailsResponse
+    
+    
+    Headers: AngebotsdetailsOperationResponseOperationHeaders
+    
+}
+
+export interface AngebotsdetailsOperationResponseAttributes {
+    
+}
+
+
+export interface PingOperationRequestOperationHeaders {
+    
+    $attributes: PingOperationRequestOperationHeadersAttributes
+    
+}
+
+export interface PingOperationRequestOperationHeadersAttributes {
+    
+}
+
+
+export interface PingOperationRequest {
+    
+    $attributes: PingOperationRequestAttributes
+    
+    
+    PingRequestRA: PingRequestRA
+    
+    
+    Headers: PingOperationRequestOperationHeaders
+    
+}
+
+export interface PingOperationRequestAttributes {
+    
+}
+
+
+export interface PingOperationResponseOperationHeaders {
+    
+    $attributes: PingOperationResponseOperationHeadersAttributes
+    
+}
+
+export interface PingOperationResponseOperationHeadersAttributes {
+    
+}
+
+
+export interface PingOperationResponse {
+    
+    $attributes: PingOperationResponseAttributes
+    
+    
+    PingResponse: PingResponse
+    
+    
+    Headers: PingOperationResponseOperationHeaders
+    
+}
+
+export interface PingOperationResponseAttributes {
+    
+}
+
+
+export interface MonitoringOperationRequestOperationHeaders {
+    
+    $attributes: MonitoringOperationRequestOperationHeadersAttributes
+    
+}
+
+export interface MonitoringOperationRequestOperationHeadersAttributes {
+    
+}
+
+
+export interface MonitoringOperationRequest {
+    
+    $attributes: MonitoringOperationRequestAttributes
+    
+    
+    MonitoringRequest: MonitoringRequest
+    
+    
+    Headers: MonitoringOperationRequestOperationHeaders
+    
+}
+
+export interface MonitoringOperationRequestAttributes {
+    
+}
+
+
+export interface MonitoringOperationResponseOperationHeaders {
+    
+    $attributes: MonitoringOperationResponseOperationHeadersAttributes
+    
+}
+
+export interface MonitoringOperationResponseOperationHeadersAttributes {
+    
+}
+
+
+export interface MonitoringOperationResponse {
+    
+    $attributes: MonitoringOperationResponseAttributes
+    
+    
+    MonitoringResponse: MonitoringResponse
+    
+    
+    Headers: MonitoringOperationResponseOperationHeaders
+    
+}
+
+export interface MonitoringOperationResponseAttributes {
     
 }

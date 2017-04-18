@@ -45,7 +45,7 @@ export interface PropertyDescription {
 
 export interface ServiceDescription {
     name?: string
-    contracts?: Array<ContractDescription>
+    contract?: ContractDescription
     types?: Array<TypeDescription>
     namespaces?: { [name: string]: string }
 }
@@ -86,29 +86,26 @@ export class WsdlParser {
         };
         let typeRegistry = new TypeRegistry(sd.namespaces);
         this.processTypes(typeRegistry);
-        sd.contracts = this.contracts(sd.name, typeRegistry);
+        sd.contract = this.contract(sd.name, typeRegistry);
         sd.types = typeRegistry.complexTypes();
         return sd;
     }
 
-    private contracts(serviceName: string, typeRegistry: TypeRegistry): Array<ContractDescription> {
-        let cds = new Array<ContractDescription>();
-        let nodes = this.select(`/wsdl:definitions/wsdl:service[@name='${serviceName}']/wsdl:port`, this.doc);
+    private contract(serviceName: string, typeRegistry: TypeRegistry): ContractDescription {
+        let soapAddressEl = this.select(`/wsdl:definitions/wsdl:service[@name='${serviceName}']/wsdl:port/soap:address`, this.doc, true) as Element;
+        let location = soapAddressEl.getAttribute('location');
+        let portEl = soapAddressEl.parentNode as Element;
 
-        nodes.forEach((n: Element) => {
+        let bindingName = portEl.getAttribute('binding').split(':')[1];
+        let bindingEl = this.select(`/wsdl:definitions/wsdl:binding[@name='${bindingName}']`, this.doc, true) as Element;
+        let portTypeName = bindingEl.getAttribute('type').split(':')[1];
 
-            let bindingName = n.getAttribute('binding').split(':')[1];
-            let bindingNode = this.select(`/wsdl:definitions/wsdl:binding[@name='${bindingName}']`, this.doc, true) as Element;
-            let portTypeName = bindingNode.getAttribute('type').split(':')[1];
+        let cd: ContractDescription = {
+            name: portTypeName
+        };
+        cd.operations = this.operations(cd.name, bindingName, typeRegistry);
 
-            let cd: ContractDescription = {
-                name: portTypeName
-            };
-            cd.operations = this.operations(cd.name, bindingName, typeRegistry);
-            cds.push(cd)
-        });
-
-        return cds;
+        return cd;
     }
 
     private operations(contractName: string, bindingName: string, typeRegistry: TypeRegistry): Array<OperationDescription> {
@@ -138,19 +135,19 @@ export class WsdlParser {
         let [propertyName, itd] = this.getMessageType(messageName, typeRegistry);
         let headers = (this.select(`/wsdl:definitions/wsdl:binding[@name='${bindingName}']/wsdl:operation[@name='${operationName}']/wsdl:${messageType}/soap:header`, this.doc));
         let type: TypeDescription = {
-            name: operationName + (messageType == 'input' ? 'Request' : 'Response'),
+            name: operationName + (messageType == 'input' ? 'OperationRequest' : 'OperationResponse'),
             namespace: this.findTargetNamespace(el),
             complex: true,
             properties: []
         };
 
         type.properties.push({
-            name: propertyName,
+            name: "Body",
             type: itd.globalName
         });
 
         let typeHeader: TypeDescription = {
-            name: type.name + 'Header',
+            name: type.name + 'OperationHeaders',
             namespace: this.findTargetNamespace(el),
             complex: true,
             properties: []
@@ -168,7 +165,7 @@ export class WsdlParser {
         typeRegistry.add(typeHeader);
 
         type.properties.push({
-            name: 'Header',
+            name: 'Headers',
             type: typeHeader.globalName
         });
         
@@ -183,7 +180,7 @@ export class WsdlParser {
         let el = this.select(`/wsdl:definitions/wsdl:message[@name='${name}']`, this.doc, true) as Element;
         let bodyElName = (this.select(`/wsdl:definitions/wsdl:message[@name='${name}']/wsdl:part/@element`, this.doc, true) as Attr).value;
         let [ns, t] = this.resolveSchemaType(el, bodyElName);
-        let bodyEl = this.getTypeEl(ns, t);
+        let bodyEl = this.getTypeEl(ns, t, 'element');
         let td = this.processElement(bodyEl, null, null, typeRegistry);
         return [t, td];
     }
@@ -238,16 +235,16 @@ export class WsdlParser {
         nodes.forEach((n: Node) => {
             if (n.nodeType == 1) {
                 let cEl = n as Element;
-                if (cEl.tagName == 'xs:complexType') {
+                if (cEl.localName == 'complexType') {
                     this.processComplexType(cEl, propertyGroups, typeRegistry);
                 }
-                else if (cEl.tagName == 'xs:simpleType') {
+                else if (cEl.localName == 'simpleType') {
                     this.processSimpleType(cEl, typeRegistry);
                 }
-                else if (cEl.tagName == 'xs:element') {
+                else if (cEl.localName == 'element') {
                     this.processElement(cEl, null, propertyGroups, typeRegistry);
                 }
-                else if (cEl.tagName == 'xs:attributeGroup') {
+                else if (cEl.localName == 'attributeGroup') {
                     let pg = this.processAttributeGroup(cEl, typeRegistry);
                     propertyGroups[pg.id] = pg;
                 }
@@ -265,7 +262,7 @@ export class WsdlParser {
         nodes.forEach((n: Node) => {
             if (n.nodeType == 1) {
                 let cEl = n as Element;
-                if (cEl.tagName == 'xs:attribute') {
+                if (cEl.localName == 'attribute') {
                     pg.properties.push(this.processAttribute(cEl, typeRegistry));
                 }
             }
@@ -300,23 +297,23 @@ export class WsdlParser {
         nodes.forEach((n: Node) => {
             if (n.nodeType == 1) {
                 let cEl = n as Element;
-                if (cEl.tagName == 'xs:sequence' || cEl.tagName == 'xs:all') {
+                if (cEl.localName == 'sequence' || cEl.localName == 'all') {
                     this.processSequence(cEl, td, propertyGroups, typeRegistry)
                 }
-                else if (cEl.tagName == 'xs:complexContent') {
+                else if (cEl.localName == 'complexContent') {
                     this.processComplexContent(cEl, td, propertyGroups, typeRegistry)
                 }
-                else if (cEl.tagName == 'xs:simpleContent') {
+                else if (cEl.localName == 'simpleContent') {
                     td.properties.push({
                         name: '_content',
                         type: 'any'
                     });
                 }
-                else if (cEl.tagName == 'xs:attribute') {
+                else if (cEl.localName == 'attribute') {
                     let pd = this.processAttribute(cEl, typeRegistry);
                     td.properties.push(pd);
                 }
-                else if (cEl.tagName == 'xs:attributeGroup') {
+                else if (cEl.localName == 'attributeGroup') {
                     let agRef = cEl.getAttribute('ref');
                     let pg = this.ensurePropertyGroup(el, agRef, propertyGroups, typeRegistry);
                     td.properties = td.properties.concat(pg.properties);
@@ -371,7 +368,7 @@ export class WsdlParser {
             name = parentEl.getAttribute('name') + 'Type'
         }
 
-        if (el.tagName == 'xs:simpleType') {
+        if (el.localName == 'simpleType') {
             name += 'Simple'
         }
 
@@ -390,7 +387,7 @@ export class WsdlParser {
     }
 
     private getSimpleTypeRoot(el: Element): Array<string> {
-        if (!el || el.tagName != 'xs:simpleType') {
+        if (!el || el.localName != 'simpleType') {
             throw Error('Element not xs:simpleType');
         }
 
@@ -400,7 +397,7 @@ export class WsdlParser {
         nodes.forEach((n: Node) => {
             if (n.nodeType == 1) {
                 let cEl = n as Element;
-                if (cEl.tagName == 'xs:restriction') {
+                if (cEl.localName == 'restriction') {
                     let base = cEl.getAttribute('base');
 
                     if (!base) {
@@ -413,10 +410,10 @@ export class WsdlParser {
                         [ns, t] = this.getSimpleTypeRoot(el);
                     }
                 }
-                else if (cEl.tagName == 'xs:union') {
+                else if (cEl.localName == 'union') {
                     [ns, t] = [XS_NS_URI, 'string'];
                 }
-                else if (cEl.tagName == 'xs:list') {
+                else if (cEl.localName == 'list') {
                     [ns, t] = [XS_NS_URI, 'string'];
                 }
             }
@@ -441,7 +438,7 @@ export class WsdlParser {
             nodes.forEach((n: Node) => {
                 if (n.nodeType == 1) {
                     let cEl = n as Element;
-                    if (cEl.tagName == 'xs:simpleType') {
+                    if (cEl.localName == 'simpleType') {
                         let td = this.processSimpleType(cEl, typeRegistry);
                         pd.type = td.globalName;
                     }
@@ -470,7 +467,7 @@ export class WsdlParser {
 
     private getElDocs(el: Element) {
         let docs: string;
-        let docEl = this.elChild(this.elChild(el, 'xs:annotation'), 'xs:documentation');
+        let docEl = this.elChild(this.elChild(el, 'annotation'), 'documentation');
         if (docEl) {
             docs = docEl.textContent.replace(/\r?\n|\r/g, ' ').replace(/\s\s+/g, ' ');
         }
@@ -492,10 +489,10 @@ export class WsdlParser {
         nodes.forEach((n: Node) => {
             if (n.nodeType == 1) {
                 let cEl = n as Element;
-                if (cEl.tagName == 'xs:complexType') {
+                if (cEl.localName == 'complexType') {
                     td = this.processComplexType(cEl, propertyGroups, typeRegistry);
                 }
-                else if (cEl.tagName == 'xs:simpleType') {
+                else if (cEl.localName == 'simpleType') {
                     td = this.processSimpleType(cEl, typeRegistry);
                 }
             }
@@ -539,7 +536,7 @@ export class WsdlParser {
         nodes.forEach((n: Node) => {
             if (n.nodeType == 1) {
                 let cEl = n as Element;
-                if (cEl.tagName == 'xs:element') {
+                if (cEl.localName == 'element') {
                     this.processElement(cEl, typeDescription, propertyGroups, typeRegistry);
                 }
             }
@@ -552,10 +549,10 @@ export class WsdlParser {
         nodes.forEach((n: Node) => {
             if (n.nodeType == 1) {
                 let cEl = n as Element;
-                if (cEl.tagName == 'xs:extension') {
+                if (cEl.localName == 'extension') {
                     this.processExtension(cEl, typeDescription, propertyGroups, typeRegistry);
                 }
-                else if (cEl.tagName == 'xs:sequence' || cEl.tagName == 'xs:all') {
+                else if (cEl.localName == 'sequence' || cEl.localName == 'all') {
                     this.processSequence(cEl, typeDescription, propertyGroups, typeRegistry);
                 }
             }
@@ -576,10 +573,10 @@ export class WsdlParser {
         nodes.forEach((n: Node) => {
             if (n.nodeType == 1) {
                 let cEl = n as Element;
-                if (cEl.tagName == 'xs:sequence' || cEl.tagName == 'xs:all') {
+                if (cEl.localName == 'sequence' || cEl.localName == 'all') {
                     this.processSequence(cEl, typeDescription, propertyGroups, typeRegistry);
                 }
-                else if (cEl.tagName == 'xs:attribute') {
+                else if (cEl.localName == 'attribute') {
                     let pd = this.processAttribute(cEl, typeRegistry)
                     typeDescription.properties.push(pd);
                 }
@@ -597,16 +594,16 @@ export class WsdlParser {
         }
 
         let el = this.getTypeEl(namespace, name);
-        if (el.tagName == 'xs:complexType') {
+        if (el.localName == 'complexType') {
             if (!propertyGroups) {
                 throw new Error('Property groups not set for complex type processing.');
             }
             td = this.processComplexType(el, propertyGroups, typeRegistry);
         }
-        else if (el.tagName == 'xs:simpleType') {
+        else if (el.localName == 'simpleType') {
             td = this.processSimpleType(el, typeRegistry);
         }
-        else if (el.tagName == 'xs:element') {
+        else if (el.localName == 'element') {
             let elType = el.getAttribute('type');
             if (!elType) {
                 throw new Error(':(');
@@ -621,8 +618,8 @@ export class WsdlParser {
         return td;
     }
 
-    private getTypeEl(namespace: string, name: string): Element {
-        let types = ['simpleType', 'complexType', 'element']
+    private getTypeEl(namespace: string, name: string, elType?: 'simpleType' | 'complexType' | 'element'): Element {
+        let types = elType ? [elType] : ['simpleType', 'complexType', 'element']
         let el: Element;
 
         for (let i = 0; i < types.length; i++) {
@@ -666,7 +663,7 @@ export class WsdlParser {
         let result: Array<Element> = [];
         for (let i = 0; i < el.childNodes.length; i++) {
             let ch = el.childNodes[i];
-            if ((<Element>ch).tagName == tagName) {
+            if ((<Element>ch).localName == tagName) {
                 result.push(<Element>ch);
             }
         }
@@ -680,7 +677,7 @@ export class WsdlParser {
 
         for (let i = 0; i < el.childNodes.length; i++) {
             let ch = el.childNodes[i];
-            if ((<Element>ch).tagName == tagName) {
+            if ((<Element>ch).localName == tagName) {
                 return <Element>ch;
             }
         }
