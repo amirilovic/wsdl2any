@@ -9,7 +9,7 @@ export class <%= service.name %> {
     <% service.contract.operations.forEach((o) => { %>
     public <%= o.name %>(request: <%= o.input %>): Promise<<%= o.output %>> {
         return new Promise<<%= o.output%>>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }

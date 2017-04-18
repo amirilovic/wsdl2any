@@ -9,7 +9,7 @@ export class AmadeusWebServices {
     
     public Air_MultiAvailability(request: Air_MultiAvailabilityOperationRequest): Promise<Air_MultiAvailabilityOperationResponse> {
         return new Promise<Air_MultiAvailabilityOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -26,7 +26,7 @@ export class AmadeusWebServices {
     }
     public Air_RetrieveSeatMap(request: Air_RetrieveSeatMapOperationRequest): Promise<Air_RetrieveSeatMapOperationResponse> {
         return new Promise<Air_RetrieveSeatMapOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -43,7 +43,7 @@ export class AmadeusWebServices {
     }
     public Air_SellFromRecommendation(request: Air_SellFromRecommendationOperationRequest): Promise<Air_SellFromRecommendationOperationResponse> {
         return new Promise<Air_SellFromRecommendationOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -60,7 +60,7 @@ export class AmadeusWebServices {
     }
     public Command_Cryptic(request: Command_CrypticOperationRequest): Promise<Command_CrypticOperationResponse> {
         return new Promise<Command_CrypticOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -77,7 +77,7 @@ export class AmadeusWebServices {
     }
     public FOP_CreateFormOfPayment(request: FOP_CreateFormOfPaymentOperationRequest): Promise<FOP_CreateFormOfPaymentOperationResponse> {
         return new Promise<FOP_CreateFormOfPaymentOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -94,7 +94,7 @@ export class AmadeusWebServices {
     }
     public Fare_CheckRules(request: Fare_CheckRulesOperationRequest): Promise<Fare_CheckRulesOperationResponse> {
         return new Promise<Fare_CheckRulesOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -111,7 +111,7 @@ export class AmadeusWebServices {
     }
     public Fare_GetFareFamilyDescription(request: Fare_GetFareFamilyDescriptionOperationRequest): Promise<Fare_GetFareFamilyDescriptionOperationResponse> {
         return new Promise<Fare_GetFareFamilyDescriptionOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -128,7 +128,7 @@ export class AmadeusWebServices {
     }
     public Fare_InformativeBestPricingWithoutPNR(request: Fare_InformativeBestPricingWithoutPNROperationRequest): Promise<Fare_InformativeBestPricingWithoutPNROperationResponse> {
         return new Promise<Fare_InformativeBestPricingWithoutPNROperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -145,7 +145,7 @@ export class AmadeusWebServices {
     }
     public Fare_InformativePricingWithoutPNR(request: Fare_InformativePricingWithoutPNROperationRequest): Promise<Fare_InformativePricingWithoutPNROperationResponse> {
         return new Promise<Fare_InformativePricingWithoutPNROperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -162,7 +162,7 @@ export class AmadeusWebServices {
     }
     public Fare_MasterPricerCalendar(request: Fare_MasterPricerCalendarOperationRequest): Promise<Fare_MasterPricerCalendarOperationResponse> {
         return new Promise<Fare_MasterPricerCalendarOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -179,7 +179,7 @@ export class AmadeusWebServices {
     }
     public Fare_MasterPricerTravelBoardSearch(request: Fare_MasterPricerTravelBoardSearchOperationRequest): Promise<Fare_MasterPricerTravelBoardSearchOperationResponse> {
         return new Promise<Fare_MasterPricerTravelBoardSearchOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -196,7 +196,7 @@ export class AmadeusWebServices {
     }
     public Fare_PricePNRWithBookingClass(request: Fare_PricePNRWithBookingClassOperationRequest): Promise<Fare_PricePNRWithBookingClassOperationResponse> {
         return new Promise<Fare_PricePNRWithBookingClassOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -213,7 +213,7 @@ export class AmadeusWebServices {
     }
     public Fare_PricePNRWithLowerFares(request: Fare_PricePNRWithLowerFaresOperationRequest): Promise<Fare_PricePNRWithLowerFaresOperationResponse> {
         return new Promise<Fare_PricePNRWithLowerFaresOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -230,7 +230,7 @@ export class AmadeusWebServices {
     }
     public Fare_PricePNRWithLowestFare(request: Fare_PricePNRWithLowestFareOperationRequest): Promise<Fare_PricePNRWithLowestFareOperationResponse> {
         return new Promise<Fare_PricePNRWithLowestFareOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -247,7 +247,7 @@ export class AmadeusWebServices {
     }
     public Hotel_CompleteReservationDetails(request: Hotel_CompleteReservationDetailsOperationRequest): Promise<Hotel_CompleteReservationDetailsOperationResponse> {
         return new Promise<Hotel_CompleteReservationDetailsOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -264,7 +264,7 @@ export class AmadeusWebServices {
     }
     public Hotel_Sell(request: Hotel_SellOperationRequest): Promise<Hotel_SellOperationResponse> {
         return new Promise<Hotel_SellOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -281,7 +281,7 @@ export class AmadeusWebServices {
     }
     public PNR_AddMultiElements(request: PNR_AddMultiElementsOperationRequest): Promise<PNR_AddMultiElementsOperationResponse> {
         return new Promise<PNR_AddMultiElementsOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -298,7 +298,7 @@ export class AmadeusWebServices {
     }
     public PNR_Cancel(request: PNR_CancelOperationRequest): Promise<PNR_CancelOperationResponse> {
         return new Promise<PNR_CancelOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -315,7 +315,7 @@ export class AmadeusWebServices {
     }
     public PNR_Retrieve(request: PNR_RetrieveOperationRequest): Promise<PNR_RetrieveOperationResponse> {
         return new Promise<PNR_RetrieveOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -332,7 +332,7 @@ export class AmadeusWebServices {
     }
     public PNR_Retrieve2(request: PNR_Retrieve2OperationRequest): Promise<PNR_Retrieve2OperationResponse> {
         return new Promise<PNR_Retrieve2OperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -349,7 +349,7 @@ export class AmadeusWebServices {
     }
     public PNR_TransferOwnership(request: PNR_TransferOwnershipOperationRequest): Promise<PNR_TransferOwnershipOperationResponse> {
         return new Promise<PNR_TransferOwnershipOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -366,7 +366,7 @@ export class AmadeusWebServices {
     }
     public Queue_PlacePNR(request: Queue_PlacePNROperationRequest): Promise<Queue_PlacePNROperationResponse> {
         return new Promise<Queue_PlacePNROperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -383,7 +383,7 @@ export class AmadeusWebServices {
     }
     public Security_Authenticate(request: Security_AuthenticateOperationRequest): Promise<Security_AuthenticateOperationResponse> {
         return new Promise<Security_AuthenticateOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -400,7 +400,7 @@ export class AmadeusWebServices {
     }
     public Security_SignOut(request: Security_SignOutOperationRequest): Promise<Security_SignOutOperationResponse> {
         return new Promise<Security_SignOutOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -417,7 +417,7 @@ export class AmadeusWebServices {
     }
     public Service_IntegratedCatalogue(request: Service_IntegratedCatalogueOperationRequest): Promise<Service_IntegratedCatalogueOperationResponse> {
         return new Promise<Service_IntegratedCatalogueOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -434,7 +434,7 @@ export class AmadeusWebServices {
     }
     public Service_IntegratedPricing(request: Service_IntegratedPricingOperationRequest): Promise<Service_IntegratedPricingOperationResponse> {
         return new Promise<Service_IntegratedPricingOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -451,7 +451,7 @@ export class AmadeusWebServices {
     }
     public Service_StandaloneCatalogue(request: Service_StandaloneCatalogueOperationRequest): Promise<Service_StandaloneCatalogueOperationResponse> {
         return new Promise<Service_StandaloneCatalogueOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -468,7 +468,7 @@ export class AmadeusWebServices {
     }
     public Service_StandalonePricing(request: Service_StandalonePricingOperationRequest): Promise<Service_StandalonePricingOperationResponse> {
         return new Promise<Service_StandalonePricingOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -485,7 +485,7 @@ export class AmadeusWebServices {
     }
     public Ticket_CreateTSMFromPricing(request: Ticket_CreateTSMFromPricingOperationRequest): Promise<Ticket_CreateTSMFromPricingOperationResponse> {
         return new Promise<Ticket_CreateTSMFromPricingOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -502,7 +502,7 @@ export class AmadeusWebServices {
     }
     public Ticket_CreateTSTFromPricing(request: Ticket_CreateTSTFromPricingOperationRequest): Promise<Ticket_CreateTSTFromPricingOperationResponse> {
         return new Promise<Ticket_CreateTSTFromPricingOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -519,7 +519,7 @@ export class AmadeusWebServices {
     }
     public Ticket_DisplayTSMP(request: Ticket_DisplayTSMPOperationRequest): Promise<Ticket_DisplayTSMPOperationResponse> {
         return new Promise<Ticket_DisplayTSMPOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
@@ -536,7 +536,7 @@ export class AmadeusWebServices {
     }
     public Ticket_DisplayTST(request: Ticket_DisplayTSTOperationRequest): Promise<Ticket_DisplayTSTOperationResponse> {
         return new Promise<Ticket_DisplayTSTOperationResponse>((resolve, reject) => {
-            soap.createClient(this.wsdlUrl, {}, (error, client: any) => {
+            soap.createClient(this.wsdlUrl, {attributesKey: '$attributes'}, (error, client: any) => {
                 if(request.Headers) {
                     client.addSoapHeader(request.Headers, null, null);
                 }
